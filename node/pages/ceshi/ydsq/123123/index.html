@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui, viewport-fit=cover">
+  <title></title>
+  <style>
+    html,
+    body,
+    div,
+    span,
+    applet,
+    object,
+    iframe,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p,
+    blockquote,
+    pre,
+    a,
+    abbr,
+    acronym,
+    address,
+    big,
+    cite,
+    code,
+    del,
+    dfn,
+    em,
+    ins,
+    kbd,
+    q,
+    s,
+    samp,
+    small,
+    strike,
+    strong,
+    sub,
+    sup,
+    tt,
+    var,
+    b,
+    u,
+    i,
+    center,
+    dl,
+    dt,
+    dd,
+    ol,
+    ul,
+    li,
+    fieldset,
+    form,
+    label,
+    legend,
+    table,
+    caption,
+    tbody,
+    tfoot,
+    thead,
+    tr,
+    th,
+    td,
+    article,
+    aside,
+    canvas,
+    details,
+    embed,
+    figure,
+    figcaption,
+    footer,
+    header,
+    menu,
+    nav,
+    output,
+    ruby,
+    section,
+    summary,
+    time,
+    mark,
+    audio,
+    video,
+    input {
+      margin: 0;
+      padding: 0;
+      border: 0;
+    }
+
+    /* HTML5 display-role reset for older browsers */
+
+    article,
+    aside,
+    details,
+    figcaption,
+    figure,
+    footer,
+    header,
+    menu,
+    nav,
+    section {
+      display: block;
+    }
+
+    blockquote,
+    q {
+      quotes: none;
+    }
+
+    blockquote:before,
+    blockquote:after,
+    q:before,
+    q:after {
+      content: none;
+    }
+
+    table {
+      border-collapse: collapse;
+      border-spacing: 0;
+    }
+
+    /* custom */
+
+    a {
+      color: #333;
+      text-decoration: none;
+    }
+
+    li {
+      list-style: none;
+    }
+
+    img {
+      -webkit-touch-callout: none;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      border: none
+    }
+
+    html,
+    body {
+      color: #333;
+      max-width: 750PX;
+      margin: 0 auto;
+    }
+
+    body {
+      -webkit-text-size-adjust: none;
+      -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+      overflow-x: hidden;
+      line-height: 1.1;
+      font-size: 0;
+      background: #fff;
+    }
+
+    a,
+    html,
+    button,
+    input,
+    textarea {
+      font-family: 'PingFang SC', 'Microsoft YaHei', 'STHeitiSC-Light', 'Helvetica', 'Helvetica-Light', arial, sans-serif
+    }
+
+    button {
+      outline: none;
+      border: 0 none;
+      margin: 0;
+      padding: 0;
+      line-height: 1;
+    }
+
+    /* 去除iPhone中默认的input样式 */
+
+    input[type="submit"],
+    input[type="reset"],
+    input[type="button"],
+    input,
+    textarea {
+      -webkit-appearance: none;
+      resize: none;
+      outline: none;
+    }
+
+    input[type="checkbox"] {
+      width: 0;
+      height: 0;
+    }
+
+    /* 取消链接高亮  */
+
+    body,
+    div,
+    ul,
+    li,
+    ol,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    input,
+    textarea,
+    select,
+    p,
+    dl,
+    dt,
+    dd,
+    a,
+    button,
+    form,
+    table,
+    th,
+    tr,
+    td,
+    tbody,
+    article,
+    aside,
+    details,
+    figcaption,
+    figure,
+    footer,
+    header,
+    hgroup,
+    menu,
+    nav,
+    section {
+      -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    }
+
+    .app {
+      background-color: rgba(218, 53, 28, 0.1);
+    }
+
+    .introduction {
+      padding: .8rem;
+      position: relative;
+    }
+
+    .introduction h2 {
+      font-size: .38rem;
+      text-align: center;
+      line-height: 1.5em;
+      color: rgb(75, 19, 19);
+    }
+
+    .introduction p {
+      color: rgb(113, 59, 59);
+      font-size: .34rem;
+      line-height: 1.5em;
+    }
+
+    .introduction .border_top_left {
+      width: 1.36rem;
+      height: 1.36rem;
+      background: url("imgs/border_top_left.png") left top/100% no-repeat;
+      position: absolute;
+      left: .4rem;
+      top: .4rem;
+    }
+
+    .introduction .border_top_right {
+      width: 4.82rem;
+      height: .02rem;
+      background: #df3327;
+      position: absolute;
+      right: .4rem;
+      top: .4rem;
+    }
+
+    .introduction .border_bottom_left {
+      width: 4.82rem;
+      height: .02rem;
+      background: #df3327;
+      position: absolute;
+      left: .4rem;
+      bottom: .4rem;
+    }
+
+    .introduction .border_bottom_right {
+      width: 1.36rem;
+      height: 1.36rem;
+      background: url("imgs/border_bottom_right.png") right bottom/100% no-repeat;
+      position: absolute;
+      right: .4rem;
+      bottom: .4rem;
+    }
+
+    .app_info {
+      padding: .35rem;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      position: relative;
+    }
+
+    .app_info .logo {
+      width: 1.4rem;
+      height: 1.4rem;
+    }
+
+
+    .app_info .content {
+      -webkit-box-flex: 1;
+      -ms-flex: 1;
+      flex: 1;
+      margin-left: .28rem;
+    }
+
+    .app_info .content h1 {
+      font-size: .32rem;
+      color: rgb(75, 19, 19);
+      font-weight: normal;
+    }
+
+    .app_info .text {
+      color: rgba(75, 19, 19, 0.6);
+      font-size: .24rem;
+      margin-top: .15rem;
+    }
+
+    .app_info .text .size {
+      margin-right: .36rem;
+    }
+
+    .app_info .tags {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+    }
+
+    .app_info .tags span {
+      -webkit-box-flex: 0;
+      -ms-flex: 0 1 .92rem;
+      flex: 0 1 .92rem;
+      width: .92rem;
+      height: .42rem;
+      text-align: center;
+      font-size: .24rem;
+      color: rgb(135, 25, 25);
+      background: rgba(218, 53, 28, 0.1);
+      border: .03rem solid rgba(135, 25, 25, 0.5);
+      border-radius: .1rem;
+      margin-top: .15rem;
+      margin-right: .1rem;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+    }
+
+    .app_info .right {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: content;
+      -ms-flex-pack: content;
+      justify-content: content;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+    }
+
+    .app_info .download {
+      width: 1.38rem;
+      height: .54rem;
+      border-radius: .54rem;
+      font-size: .28rem;
+      background: rgb(218, 53, 28);
+      color: #fff;
+    }
+
+    .banner {
+      width: 100%;
+    }
+
+    .chapter {
+      padding: .3rem .6rem;
+    }
+
+    .chapter .title_pic_top {
+      width: 6.12rem;
+      height: .77rem;
+      background: url("imgs/chapter_title_pic_top.png") center/100% no-repeat;
+      margin: 0 auto;
+    }
+
+    .chapter .title_pic_bottom {
+      width: 6.12rem;
+      height: .77rem;
+      background: url("imgs/chapter_title_pic_bottom.png") center/100% no-repeat;
+      margin: 0 auto;
+    }
+
+    .chapter .title {
+      text-align: center;
+      font-size: .36rem;
+      color: rgb(103, 21, 21);
+    }
+
+    .chapter .content {
+      font-size: .32rem;
+      white-space: pre-wrap;
+      line-height: 1.5;
+      word-wrap: break-word;
+      word-break: break-all;
+    }
+
+    .download_link {
+      color: rgb(218, 53, 28);
+      font-size: .32rem;
+      text-align: center;
+      display: block;
+      line-height: 1.3rem;
+    }
+
+    .download_button {
+      background: rgb(218, 53, 28);
+      font-size: .32rem;
+      color: #fff;
+      width: 7rem;
+      height: .84rem;
+      margin: 0 auto;
+      display: block;
+      border-radius: .84rem;
+    }
+
+    .copyright {
+      font-size: .24rem;
+      text-align: center;
+      line-height: .9rem;
+      background: rgb(242, 242, 242);
+      color: rgb(105, 118, 140);
+      margin-top: .2rem;
+      padding-bottom: 1.2rem;
+    }
+
+    .copyright p:after,
+    .copyright p:before {
+      content: "\2212";
+      margin: 0 .667em;
+    }
+
+    .btn {
+      position: fixed;
+      bottom: 0;
+      left: 50%;
+      border-top: 1px solid #d8d8d8;
+      background: rgba(255, 255, 255, .5);
+      width: 100%;
+      max-width: 750px;
+      -webkit-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+      transform: translateX(-50%);
+      padding: .2rem 0;
+    }
+
+    .toasted-container {
+      position: fixed;
+      top: 20%;
+      left: 50%;
+      z-index: 100;
+      -webkit-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+      transform: translateX(-50%);
+      -ms-touch-action: pan-y;
+      touch-action: pan-y;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      -webkit-user-drag: none;
+      -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+      opacity: 1;
+      width: auto;
+      clear: both;
+      max-width: 100%;
+      height: auto;
+      word-break: normal;
+      display: -ms-flexbox;
+      display: -webkit-box;
+      display: flex;
+      -ms-flex-align: center;
+      -webkit-box-align: center;
+      align-items: center;
+      -ms-flex-pack: justify;
+      -webkit-box-pack: justify;
+      justify-content: space-between;
+      -webkit-box-sizing: inherit;
+      box-sizing: inherit;
+      border-radius: 2px;
+      min-height: 38px;
+      line-height: 1.1em;
+      background-color: rgba(53, 53, 53, .9);
+      padding: 0 20px;
+      font-size: 15px;
+      font-weight: 300;
+      color: #fff;
+      -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, .12), 0 1px 2px rgba(0, 0, 0, .24);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, .12), 0 1px 2px rgba(0, 0, 0, .24);
+      display: none;
+    }
+
+    .loader {
+      width: 30px;
+      height: 30px;
+      position: relative;
+    }
+
+    .ball-scale-multiple {
+
+      width: 30px;
+      height: 30px;
+    }
+
+    .ball-beat>div,
+    .ball-scale-multiple>div {
+      background-color: #fff;
+      border-radius: 100%;
+    }
+
+    .ball-scale-multiple>div {
+      position: absolute;
+      opacity: 0;
+      margin: 0;
+      width: 30px;
+      height: 30px;
+      -webkit-animation: ball-scale-multiple 1s 0s linear infinite;
+      animation: ball-scale-multiple 1s 0s linear infinite;
+    }
+
+    .ball-scale-multiple>div:nth-child(2) {
+      -webkit-animation-delay: -.4s;
+      animation-delay: -.4s;
+    }
+
+    .ball-scale-multiple>div:nth-child(3) {
+      -webkit-animation-delay: -.2s;
+      animation-delay: -.2s;
+    }
+
+    @-webkit-keyframes ball-scale-multiple {
+      0% {
+        -webkit-transform: scale(0);
+        transform: scale(0);
+        opacity: 0;
+      }
+
+      5% {
+        opacity: 1;
+      }
+
+      100% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+        opacity: 0;
+      }
+    }
+
+    @keyframes ball-scale-multiple {
+      0% {
+        -webkit-transform: scale(0);
+        transform: scale(0);
+        opacity: 0;
+      }
+
+      5% {
+        opacity: 1;
+      }
+
+      100% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+        opacity: 0;
+      }
+    }
+
+    @-webkit-keyframes fadeInDown {
+      0% {
+        opacity: 0;
+        -webkit-transform: translate3d(-50%, -100%, 0);
+        transform: translate3d(-50%, -100%, 0)
+      }
+
+      to {
+        opacity: 1;
+        -webkit-transform: translate3d(-50%, 0, 0);
+        transform: translate3d(-50%, 0, 0)
+      }
+    }
+
+    @keyframes fadeInDown {
+      0% {
+        opacity: 0;
+        -webkit-transform: translate3d(-50%, -100%, 0);
+        transform: translate3d(-50%, -100%, 0)
+      }
+
+      to {
+        opacity: 1;
+        -webkit-transform: translate3d(-50%, 0, 0);
+        transform: translate3d(-50%, 0, 0)
+      }
+    }
+
+    .fadeInDown {
+      -webkit-animation-name: fadeInDown;
+      animation-name: fadeInDown;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+    }
+
+    .animated {
+      -webkit-animation-duration: .5s;
+      animation-duration: .5s;
+      -webkit-animation-fill-mode: both;
+      animation-fill-mode: both
+    }
+
+    .weixin-tip {
+      background: rgba(0, 0, 0, .8);
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      z-index: 1000;
+      display: none;
+    }
+
+    .weixin-tip img {
+      width: 100%;
+    }
+    
+    div.app_info > img{
+      background-size: 100%;
+    }
+    iframe{display:none !important;}
+  </style>
+  <script>
+    function rem() {
+      var html = document.documentElement
+      var width = html.clientWidth
+      if (width >= 750) {
+        width = 750
+      }
+      html.style.fontSize = 100 * (width / 750) + "px"
+    }
+    rem()
+    window.addEventListener('resize', () => rem())
+  </script>
+</head>
+
+<body>
+  <div class="app">
+    <div class="introduction">
+      <h2>《123》</h2>
+      <p>
+        123
+      </p>
+      <div class="border_top_left"></div>
+      <div class="border_top_right"></div>
+      <div class="border_bottom_left"></div>
+      <div class="border_bottom_right"></div>
+    </div>
+    <div class="app_info" onclick="download()">
+      <img class="copyright_logo" alt="" style="position: absolute;top: -10px;left: 18px;width: 55px;">
+      <img alt="" srcset="" class="logo">
+      <div class="content">
+        <h1 class="appName"></h1>
+        <div class="text"><span class="size"></span><span>213人下载</span></div>
+        <div class="tags">
+        </div>
+      </div>
+      <div class="right">
+        <button class="download">免费下载</button>
+      </div>
+    </div>
+    <img class="banner" src="imgs/1576826910209.jpg" alt="">
+
+    
+    <div class="chapter">
+      <div class="title">
+        <div class="title_pic_top"></div>
+        <p>1234</p>
+        <div class="title_pic_bottom"></div>
+        <div></div>
+      </div>
+      <div class="content">
+　　3214
+      </div>
+    </div>
+    <a class="download_link" href="javascript:download();" style="display: none;">
+      >>篇幅有限，立即下载全文阅读
+    </a>
+    
+
+    <div class="btn">
+      <button class="download_button" onclick="download()">
+        234
+      </button>
+    </div>
+
+    <div class="copyright">
+      <p></p>
+    </div>
+  </div>
+  <div class="toasted-container">
+    <div class="loader">
+      <div class="ball-scale-multiple">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+    下载中 !!
+  </div>
+  <div class="weixin-tip">
+    <img src="imgs/weixin-tip.png" alt="" srcset="">
+  </div>
+</body>
+
+<script>
+  var appInfo = {
+    defaultAppName: "123",
+    androidAppName: "",
+    iosAppName: "",
+    androidSize: "10.5M",
+    iosSize: "66M",
+    defaultLogo: "ku1EVDCG1uJsWrfvxNuN9Vh3.jpg",
+    androidLogo: "",
+    iosLogo: "",
+    tags: "2314",
+    
+			'67889':{
+				androidDownload: '456',
+				iosDownload: '456',
+				copyright: '0',
+				copyright_logo: 'RjJQzQ4A5TgRSKVRexR0gKID.jpg'
+			},
+			
+    default: {
+      'androidDownload': '456',
+      'iosDownload': '456',
+      'copyright': '0',
+      'copyright_logo': 'RjJQzQ4A5TgRSKVRexR0gKID.jpg'
+    }
+  }
+  var appInfoHost = appInfo[window.location.host] || appInfo.default
+  function getQueryString(name) {
+    var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+    var r = window.location.search.substr(1).match(reg);
+    if (r != null) {
+      return r[2];
+    }
+    return null;
+  }
+  var kwid = getQueryString('keywordid');
+  var ca = getQueryString('creative');
+  var appSize = ""
+  var logo = ""
+  if (/(iPhone|iPad|iPod|iOS)/i.test(navigator.userAgent)) {
+    appSize = appInfo.iosSize
+    logo = appInfo.iosLogo || appInfo.defaultLogo;
+    var appName = (appInfo.iosAppName || appInfo.defaultAppName);
+    document.querySelector("head > title").innerHTML = "123"+" - "+appName;
+    document.querySelector(".appName").innerHTML = appName;
+  } else {
+    appSize = appInfo.androidSize
+    logo = appInfo.androidLogo || appInfo.defaultLogo;
+    var appName = (appInfo.androidAppName || appInfo.defaultAppName);
+    document.querySelector("head > title").innerHTML = "123"+" - "+appName;
+    document.querySelector(".appName").innerHTML = appName;
+  }
+  document.querySelector(".size").innerText = appSize
+  document.querySelector(".logo").style.backgroundImage = "url(./imgs/" + logo + ")"
+  document.querySelector(".copyright p").innerText = appInfoHost.copyright
+  document.querySelector(".copyright_logo").src = './imgs/' + appInfoHost.copyright_logo
+  if(appInfoHost.copyright_logo == ''){
+    document.querySelector(".copyright_logo").style.display = "none"
+  }
+
+  var tagsHtml = ""
+  var tagHtml = '<span>{{tag}}</span>'
+  var tags = appInfo.tags.replace("，",",").replace(" ",",").split(",")
+  for (var i = 0; i < tags.length; i++) {
+    tagsHtml += tagHtml.replace(/{{tag}}/, tags[i])
+  }
+  document.querySelector(".tags").innerHTML = tagsHtml
+
+  window.download = function () {
+    if (/MicroMessenger/i.test(navigator.userAgent)) {
+      document.querySelector(".weixin-tip").style.display = "block"
+      return
+    }
+    if (/(iPhone|iPad|iPod|iOS)/i.test(navigator.userAgent)) {
+      window.location.href = appInfoHost.iosDownload.replace(/{keywordid}/, kwid).replace(/{creative}/, ca)
+    } else {
+      window.location.href = appInfoHost.androidDownload.replace(/{keywordid}/, kwid).replace(/{creative}/, ca)
+      //var downloadIframe = document.createElement("iframe")
+      //downloadIframe.id = "download_iframe"
+      //downloadIframe.style.display = "none"
+
+      //downloadIframe.src = appInfoHost.androidDownload.replace(/{keywordid}/, kwid).replace(/{creative}/, ca)
+
+
+      //var toasted = document.querySelector(".toasted-container")
+      //var animationend = function (e) {
+      //  e.target.classList.remove("animated")
+      //  toasted.removeEventListener("webkitAnimationEnd", animationend)
+      //  toasted.removeEventListener("animationend", animationend)
+      //}
+      //toasted.addEventListener("webkitAnimationEnd", animationend)
+      //toasted.addEventListener("animationend", animationend)
+      //toasted.classList.add("fadeInDown")
+      //toasted.classList.add("animated")
+      //document.body.appendChild(downloadIframe)
+      //setTimeout(function () {
+      //  toasted.classList.remove("fadeInDown")
+      //}, 2000)
+    }
+  }
+
+</script>
+
+</html>

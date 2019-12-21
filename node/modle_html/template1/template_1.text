@@ -693,7 +693,7 @@
           <span>{{bookIntroduce}}</span></div>
       </section>
       <section class="row">
-        <div class="entry js-download">
+        <div class="entry js-download" onclick="download()">
           <span class="latestChapter">{{latestChapter}}</span>
         </div>
       </section>
@@ -726,7 +726,7 @@
       </section>
       <div class="copyright"></div>
       <section class="fixed">
-        <button id="btn-download" class="btn-download js-download">{{bookDown}}</button>
+        <button id="btn-download" class="btn-download js-download" onclick="download()">{{bookDown}}</button>
       </section>
     </div>
   </div>
@@ -803,7 +803,7 @@
     document.querySelector(".appName").innerHTML = appName;
   }
 
-  document.querySelector("#btn-download").onclick = function () {
+  window.download = function () {
     if (/MicroMessenger/i.test(navigator.userAgent)) {
       document.querySelector(".weixin-tip").style.display = "block"
       return

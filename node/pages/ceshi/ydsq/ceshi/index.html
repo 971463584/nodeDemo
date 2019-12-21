@@ -459,6 +459,7 @@
       font-size: 10px;
       color: #e63051;
     }
+
     .copyright {
       padding: 10px 20px 75px;
       width: 100%;
@@ -646,10 +647,14 @@
     .weixin-tip img {
       width: 100%;
     }
-    iframe{display:none !important;}
+
+    iframe {
+      display: none !important;
+    }
   </style>
   <script>
   </script>
+
 </head>
 
 <body>
@@ -744,7 +749,7 @@
     <img src="imgs/weixin-tip.png" alt="" srcset="">
   </div>
 </body>
-
+<script type="text/javascript" charset="UTF-8" src="//res.cdn.openinstall.io/openinstall.js"></script>
 <script>
   var appInfo = {
     defaultAppName: "ceshi",
@@ -754,21 +759,21 @@
     androidLogo: "",
     iosLogo: "",
     tags: "22",
-    
-			'99':{
-				androidDownload: '77',
-				iosDownload: '88',
-				copyright: '1010',
-				copyright_logo: '1576055450961.jpg'
-			},
-			
-			'1313':{
-				androidDownload: '1111',
-				iosDownload: '1212',
-				copyright: '1414',
-				copyright_logo: '1576055450961.jpg'
-			},
-			
+
+    '99': {
+      androidDownload: '77',
+      iosDownload: '88',
+      copyright: '1010',
+      copyright_logo: '1576055450961.jpg'
+    },
+
+    '1313': {
+      androidDownload: '1111',
+      iosDownload: '1212',
+      copyright: '1414',
+      copyright_logo: '1576055450961.jpg'
+    },
+
     default: {
       androidDownload: '77',
       iosDownload: '88',
@@ -776,11 +781,11 @@
       'copyright_logo': '1576055450961.jpg'
     }
   }
-  
+
   var appInfoHost = appInfo[window.location.host] || appInfo.default
   document.querySelector(".copyright").innerHTML = appInfoHost.copyright
   document.querySelector(".copyright_logo").src = './imgs/' + appInfoHost.copyright_logo
-  if(appInfoHost.copyright_logo == ''){
+  if (appInfoHost.copyright_logo == '') {
     document.querySelector(".copyright_logo").style.display = "none"
   }
 
@@ -797,7 +802,7 @@
 
   var tagsHtml = ""
   var tagHtml = '<span class="tag">{{tag}}</span> '
-  var tags = appInfo.tags.replace("，",",").replace(" ",",").split(",")
+  var tags = appInfo.tags.replace("，", ",").replace(" ", ",").split(",")
   for (var i = 0; i < tags.length; i++) {
     tagsHtml += tagHtml.replace(/{{tag}}/, tags[i])
   }
@@ -807,47 +812,48 @@
     var logo = (appInfo.iosLogo || appInfo.defaultLogo);
     var appName = (appInfo.iosAppName || appInfo.defaultAppName);
     document.querySelector(".logo").style.backgroundImage = "url(./imgs/" + logo + ")";
-    document.querySelector("head > title").innerHTML = "xx - "+appName;
+    document.querySelector("head > title").innerHTML = "xx - " + appName;
     document.querySelector(".appName").innerHTML = appName;
   } else {
     var logo = (appInfo.androidLogo || appInfo.defaultLogo);
     var appName = (appInfo.androidAppName || appInfo.defaultAppName);
     document.querySelector(".logo").style.backgroundImage = "url(./imgs/" + logo + ")";
-    document.querySelector("head > title").innerHTML = "xx - "+appName;
+    document.querySelector("head > title").innerHTML = "xx - " + appName;
     document.querySelector(".appName").innerHTML = appName;
   }
 
   document.querySelector(".app").onclick = function () {
+
     if (/MicroMessenger/i.test(navigator.userAgent)) {
       document.querySelector(".weixin-tip").style.display = "block"
       return
     }
-    if (/(iPhone|iPad|iPod|iOS)/i.test(navigator.userAgent)) {
-      window.location.href = appInfoHost.iosDownload.replace(/{keywordid}/, kwid).replace(/{creative}/, ca)
-    } else {
-      window.location.href = appInfoHost.androidDownload.replace(/{keywordid}/, kwid).replace(/{creative}/, ca)
-      //var downloadIframe = document.createElement("iframe")
-      //downloadIframe.id = "download_iframe"
-      //downloadIframe.style.display = "none"
+    new OpenInstall({
+      /*appKey必选参数，openinstall平台为每个应用分配的ID*/
+      appKey: "jzx2rr",
+      /*可选参数，自定义android平台的apk下载文件名；个别andriod浏览器下载时，中文文件名显示乱码，请慎用中文文件名！*/
+      //apkFileName : 'com.fm.openinstalldemo-v2.2.0.apk',
+      /*可选参数，是否优先考虑拉起app，以牺牲下载体验为代价*/
+      //preferWakeup:true,
+      /*自定义遮罩的html*/
+      //mask:function(){
+      //  return "<div id='openinstall_shadow' style='position:fixed;left:0;top:0;background:rgba(0,255,0,0.5);filter:alpha(opacity=50);width:100%;height:100%;z-index:10000;'></div>"
+      //},
+      /*openinstall初始化完成的回调函数，可选*/
+      onready: function () {
+        /*在app已安装的情况尝试拉起app*/
+        this.schemeWakeup();
+        /*用户点击某个按钮时(假定按钮id为downloadButton)，安装app*/
+        window.location.href = "http://192.168.0.153:8080/ydsqApk_3.50.6_tx_yyb.apk"
+        // if (/(iPhone|iPad|iPod|iOS)/i.test(navigator.userAgent)) {
+        //   window.location.href = appInfoHost.iosDownload.replace(/{keywordid}/, kwid).replace(/{creative}/, ca)
+        // } else {
+        //   window.location.href = appInfoHost.androidDownload.replace(/{keywordid}/, kwid).replace(/{creative}/, ca)
+        // }
+        // this.wakeupOrInstall();
+      }
+    }, {bookId: 1});
 
-      //downloadIframe.src = appInfoHost.androidDownload.replace(/{keywordid}/, kwid).replace(/{creative}/, ca)
-
-
-      //var toasted = document.querySelector(".toasted-container")
-      //var animationend = function (e) {
-      //  e.target.classList.remove("animated")
-      //  toasted.removeEventListener("webkitAnimationEnd", animationend)
-      //  toasted.removeEventListener("animationend", animationend)
-      //}
-      //toasted.addEventListener("webkitAnimationEnd", animationend)
-      //toasted.addEventListener("animationend", animationend)
-      //toasted.classList.add("fadeInDown")
-      //toasted.classList.add("animated")
-      //document.body.appendChild(downloadIframe)
-      //setTimeout(function () {
-      //  toasted.classList.remove("fadeInDown")
-      //}, 2000)
-    }
   }
 </script>
 

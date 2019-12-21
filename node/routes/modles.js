@@ -162,8 +162,8 @@ router.post('/modles', function (req, res) {
 				//处理统一的logo图片
 				if (files.app_logo[0].size > 0) {
 					var imgLogo = files.app_logo[0].path;
-					var imgs = funMethod.PictureFormat(imgLogo, globalConfig.GetLandPath(channelName, appName, pageName));
-					let logo = imgs.url.split('/');
+					// var imgs = funMethod.PictureFormat(imgLogo, globalConfig.GetLandPath(channelName, appName, pageName));
+					let logo = imgLogo.split('/');
 					pages_imgs.push(logo[logo.length - 1]);
 				} else {
 					pages_imgs.push(oldImg_arr[0].logo);
@@ -172,8 +172,8 @@ router.post('/modles', function (req, res) {
 				//处理安卓的logo
 				if (files.android_logo[0].size > 0) {
 					var androidLogo = files.android_logo[0].path;
-					var imgs = funMethod.PictureFormat(androidLogo, globalConfig.GetLandPath(channelName, appName, pageName));
-					let logo = imgs.url.split('/');
+					// var imgs = funMethod.PictureFormat(androidLogo, globalConfig.GetLandPath(channelName, appName, pageName));
+					let logo = androidLogo.split('/');
 					pages_imgs.push(logo[logo.length - 1]);
 				} else {
 					pages_imgs.push(oldImg_arr[0].androidLogo);
@@ -181,8 +181,8 @@ router.post('/modles', function (req, res) {
 				//处理iOS的logo
 				if (files.ios_logo[0].size > 0) {
 					var iosLogo = files.ios_logo[0].path;
-					var imgs = funMethod.PictureFormat(iosLogo, globalConfig.GetLandPath(channelName, appName, pageName));
-					let logo = imgs.url.split('/');
+					// var imgs = funMethod.PictureFormat(iosLogo, globalConfig.GetLandPath(channelName, appName, pageName));
+					let logo = iosLogo.split('/');
 					pages_imgs.push(logo[logo.length - 1]);
 				} else {
 					pages_imgs.push(oldImg_arr[0].iosLogo);	
@@ -191,8 +191,8 @@ router.post('/modles', function (req, res) {
 			//处理face图片
 			if (files.bookFace[0].size > 0) {
 				var imgface = files.bookFace[0].path;
-				var imgs = funMethod.PictureFormat(imgface, globalConfig.GetLandPath(channelName, appName, pageName));
-				let face = imgs.url.split('/');
+				// var imgs = funMethod.PictureFormat(imgface, globalConfig.GetLandPath(channelName, appName, pageName));
+				let face = imgface.split('/');
 				pages_imgs.push(face[face.length - 1]);
 			} else {
 				pages_imgs.push(oldImg_arr[0].cover);
@@ -203,13 +203,14 @@ router.post('/modles', function (req, res) {
 			for(let i = 0 ; i < files.copyright_logo.length; i++){
 				if(files.copyright_logo[i].size > 0){
 				   let logoPath = files.copyright_logo[i].path;
-				   let imgs = funMethod.PictureFormat(logoPath, globalConfig.GetLandPath(channelName, appName, pageName));
-				   let logos = imgs.url.split('/');
+				  //  let imgs = funMethod.PictureFormat(logoPath, globalConfig.GetLandPath(channelName, appName, pageName));
+				   let logos = logoPath.split('/');
 				   logoArr.push(logos[logos.length-1])
 				}else{
-					for(let i = 0; i < oldImg_arr[0].copyright_logo.length; i++){
-						logoArr.push(oldImg_arr[0].copyright_logo[i])
-					}
+					logoArr.push(oldImg_arr[0].copyright_logo && oldImg_arr[0].copyright_logo[i] || "")
+					// for(let i = 0; i < oldImg_arr[0].copyright_logo.length; i++){
+					// 	logoArr.push(oldImg_arr[0].copyright_logo[i])
+					// }
 				}
 		   }
 			console.log(pages_imgs);
@@ -518,9 +519,16 @@ router.post('/modles2', function (req, res) {
 				logo: datas.data.logo,
 				copyright_logo: datas.data.copyright_logo
 			}
-			oldImg_arr.push(objs);
 
+			oldImg_arr.push(objs);
 		} else {
+			oldImg_arr.push({
+				androidLogo: "",
+				iosLogo: "",
+				cover: "",
+				logo: "",
+				copyright_logo: ""
+			});
 			console.log('落地页文件夹不存在');
 			//创建落地页文件夹
 			funMethod.mkdirsSync(globalConfig.GetLandPath(channelName, appName, pageName));
@@ -555,8 +563,8 @@ router.post('/modles2', function (req, res) {
 				//处理统一的logo图片
 				if (files.app_logo[0].size > 0) {
 					var imgLogo = files.app_logo[0].path;
-					var imgs = funMethod.PictureFormat(imgLogo, globalConfig.GetLandPath(channelName, appName, pageName));
-					let logo = imgs.url.split('/');
+					// var imgs = funMethod.PictureFormat(imgLogo, globalConfig.GetLandPath(channelName, appName, pageName));
+					let logo = imgLogo.split('/');
 					pages_imgs.push(logo[logo.length - 1]);
 				} else {
 					pages_imgs.push(oldImg_arr[0].logo);
@@ -565,8 +573,8 @@ router.post('/modles2', function (req, res) {
 				//处理安卓的logo
 				if (files.android_logo[0].size > 0) {
 					var androidLogo = files.android_logo[0].path;
-					var imgs = funMethod.PictureFormat(androidLogo, globalConfig.GetLandPath(channelName, appName, pageName));
-					let logo = imgs.url.split('/');
+					// var imgs = funMethod.PictureFormat(androidLogo, globalConfig.GetLandPath(channelName, appName, pageName));
+					let logo = androidLogosplit('/');
 					pages_imgs.push(logo[logo.length - 1]);
 				} else {
 					pages_imgs.push(oldImg_arr[0].androidLogo);
@@ -574,8 +582,8 @@ router.post('/modles2', function (req, res) {
 				//处理iOS的logo
 				if (files.ios_logo[0].size > 0) {
 					var iosLogo = files.ios_logo[0].path;
-					var imgs = funMethod.PictureFormat(iosLogo, globalConfig.GetLandPath(channelName, appName, pageName));
-					let logo = imgs.url.split('/');
+					// var imgs = funMethod.PictureFormat(iosLogo, globalConfig.GetLandPath(channelName, appName, pageName));
+					let logo = iosLogo.split('/');
 					pages_imgs.push(logo[logo.length - 1]);
 				} else {
 					pages_imgs.push(oldImg_arr[0].iosLogo);
@@ -597,13 +605,14 @@ router.post('/modles2', function (req, res) {
 			for(let i = 0 ; i < files.copyright_logo.length; i++){
 				if(files.copyright_logo[i].size > 0){
 				   let logoPath = files.copyright_logo[i].path;
-				   let imgs = funMethod.PictureFormat(logoPath, globalConfig.GetLandPath(channelName, appName, pageName));
-				   let logos = imgs.url.split('/');
+				  //  let imgs = funMethod.PictureFormat(logoPath, globalConfig.GetLandPath(channelName, appName, pageName));
+				   let logos = logoPath.split('/');
 				   logoArr.push(logos[logos.length-1])
 				}else{
-					for(let i = 0; i < oldImg_arr[0].copyright_logo.length; i++){
-						logoArr.push(oldImg_arr[0].copyright_logo[i])
-					}
+					logoArr.push(oldImg_arr[0].copyright_logo && oldImg_arr[0].copyright_logo[i] || "")
+					// for(let i = 0; i < oldImg_arr[0].copyright_logo.length; i++){
+					// 	logoArr.push(oldImg_arr[0].copyright_logo[i])
+					// }
 				}
 		   }
 
@@ -920,8 +929,8 @@ router.post('/modles3', function (req, res) {
 				//处理统一的logo图片
 				if (files.app_logo[0].size > 0) {
 					var imgLogo = files.app_logo[0].path;
-					var imgs = funMethod.PictureFormat(imgLogo, globalConfig.GetLandPath(channelName, appName, pageName));
-					let logo = imgs.url.split('/');
+					// var imgs = funMethod.PictureFormat(imgLogo, globalConfig.GetLandPath(channelName, appName, pageName));
+					let logo = imgLogo.split('/');
 					pages_imgs.push(logo[logo.length - 1]);
 				} else {
 					pages_imgs.push(oldImg_arr[0].logo);
@@ -930,8 +939,8 @@ router.post('/modles3', function (req, res) {
 				//处理安卓的logo
 				if (files.android_logo[0].size > 0) {
 					var androidLogo = files.android_logo[0].path;
-					var imgs = funMethod.PictureFormat(androidLogo, globalConfig.GetLandPath(channelName, appName, pageName));
-					let logo = imgs.url.split('/');
+					// var imgs = funMethod.PictureFormat(androidLogo, globalConfig.GetLandPath(channelName, appName, pageName));
+					let logo = androidLogo.split('/');
 					pages_imgs.push(logo[logo.length - 1]);
 				} else {
 					pages_imgs.push(oldImg_arr[0].androidLogo);
@@ -939,8 +948,8 @@ router.post('/modles3', function (req, res) {
 				//处理iOS的logo
 				if (files.ios_logo[0].size > 0) {
 					var iosLogo = files.ios_logo[0].path;
-					var imgs = funMethod.PictureFormat(iosLogo, globalConfig.GetLandPath(channelName, appName, pageName));
-					let logo = imgs.url.split('/');
+					// var imgs = funMethod.PictureFormat(iosLogo, globalConfig.GetLandPath(channelName, appName, pageName));
+					let logo = iosLogo.split('/');
 					pages_imgs.push(logo[logo.length - 1]);
 				} else {
 					pages_imgs.push(oldImg_arr[0].iosLogo);
@@ -952,13 +961,14 @@ router.post('/modles3', function (req, res) {
 			for(let i = 0 ; i < files.copyright_logo.length; i++){
 				if(files.copyright_logo[i].size > 0){
 				   let logoPath = files.copyright_logo[i].path;
-				   let imgs = funMethod.PictureFormat(logoPath, globalConfig.GetLandPath(channelName, appName, pageName));
-				   let logos = imgs.url.split('/');
+				  //  let imgs = funMethod.PictureFormat(logoPath, globalConfig.GetLandPath(channelName, appName, pageName));
+				   let logos = logoPath.split('/');
 				   logoArr.push(logos[logos.length-1])
 				}else{
-					for(let i = 0; i < oldImg_arr[0].copyright_logo.length; i++){
-						logoArr.push(oldImg_arr[0].copyright_logo[i])
-					}
+					logoArr.push(oldImg_arr[0].copyright_logo && oldImg_arr[0].copyright_logo[i] || "")
+					// for(let i = 0; i < oldImg_arr[0].copyright_logo.length; i++){
+					// 	logoArr.push(oldImg_arr[0].copyright_logo[i])
+					// }
 				}
 		   }
 			
