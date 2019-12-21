@@ -1,0 +1,32 @@
+{
+  "name": "landingpage",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www",
+    "dev": "node ./bin/www dev"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "connect-history-api-fallback": "^1.6.0",
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "ejs": "^2.7.1",
+    "express": "~4.16.1",
+    "http-errors": "~1.6.3",
+    "jade": "~1.11.0",
+    "jquery": "^3.4.1",
+    "mkdirp": "^0.5.1",
+    "morgan": "~1.9.1",
+    "multer": "^1.4.2",
+    "multiparty": "^4.2.1",
+    "open": "^7.0.0",
+    "path": "^0.12.7",
+    "port": "^0.8.1",
+    "puppeteer": "^1.20.0"
+  },
+  "devDependencies": {
+    "formidable": "^1.2.1",
+    "hbs": "^4.0.6"
+  }
+}

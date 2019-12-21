@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>landingPage</title>
+</head>
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+    }
+
+    html {
+        height: 100%;
+        width: 100%;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    body,
+    div {
+        background: linear-gradient(#fff1eb, #ace0f9);
+        opacity: 0.7;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 16px;
+    }
+
+    .newCeatePage,
+    .lookOldPage,
+    .newChannel,
+    .newPageName {
+        padding: 5px 15px;
+        display: inline-block;
+        font-size: 16px;
+        border-radius: 5px;
+        border: none;
+        outline: none;
+        background-color: #4481ba;
+        color: #ffffff;
+        margin-right: 35px;
+    }
+</style>
+
+<body>
+    <div>
+        <a href="/newChannel/newChannel" class="newChannel">新建渠道</a>
+        <a href="/newPageName/newPageName" class="newPageName">新建包名</a>
+        <a href="/newPage/newPage" class="newCeatePage">新建落地页</a>
+        <a href="/oldPage/oldPage" class="lookOldPage">查看历史落地页</a>
+    </div>
+</body>
+</script>
+</html>

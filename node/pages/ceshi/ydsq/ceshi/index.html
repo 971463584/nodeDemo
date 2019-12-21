@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui, viewport-fit=cover">
+  <title></title>
+  <style>
+    html,
+    body,
+    div,
+    span,
+    applet,
+    object,
+    iframe,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p,
+    blockquote,
+    pre,
+    a,
+    abbr,
+    acronym,
+    address,
+    big,
+    cite,
+    code,
+    del,
+    dfn,
+    em,
+    ins,
+    kbd,
+    q,
+    s,
+    samp,
+    small,
+    strike,
+    strong,
+    sub,
+    sup,
+    tt,
+    var,
+    b,
+    u,
+    i,
+    center,
+    dl,
+    dt,
+    dd,
+    ol,
+    ul,
+    li,
+    fieldset,
+    form,
+    label,
+    legend,
+    table,
+    caption,
+    tbody,
+    tfoot,
+    thead,
+    tr,
+    th,
+    td,
+    article,
+    aside,
+    canvas,
+    details,
+    embed,
+    figure,
+    figcaption,
+    footer,
+    header,
+    menu,
+    nav,
+    output,
+    ruby,
+    section,
+    summary,
+    time,
+    mark,
+    audio,
+    video,
+    input {
+      margin: 0;
+      padding: 0;
+      border: 0;
+    }
+
+    /* HTML5 display-role reset for older browsers */
+
+    article,
+    aside,
+    details,
+    figcaption,
+    figure,
+    footer,
+    header,
+    menu,
+    nav,
+    section {
+      display: block;
+    }
+
+    blockquote,
+    q {
+      quotes: none;
+    }
+
+    blockquote:before,
+    blockquote:after,
+    q:before,
+    q:after {
+      content: none;
+    }
+
+    table {
+      border-collapse: collapse;
+      border-spacing: 0;
+    }
+
+    /* custom */
+
+    a {
+      color: #333;
+      text-decoration: none;
+    }
+
+    li {
+      list-style: none;
+    }
+
+    img {
+      -webkit-touch-callout: none;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      border: none
+    }
+
+    html,
+    body {
+      color: #333;
+      max-width: 750PX;
+      margin: 0 auto;
+    }
+
+    body {
+      -webkit-text-size-adjust: none;
+      -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+      overflow-x: hidden;
+      line-height: 1.1;
+      background: #fff;
+    }
+
+    a,
+    html,
+    button,
+    input,
+    textarea {
+      font-family: 'PingFang SC', 'Microsoft YaHei', 'STHeitiSC-Light', 'Helvetica', 'Helvetica-Light', arial, sans-serif
+    }
+
+    button {
+      outline: none;
+      border: 0 none;
+      margin: 0;
+      padding: 0;
+      line-height: 1;
+    }
+
+    /* 去除iPhone中默认的input样式 */
+
+    input[type="submit"],
+    input[type="reset"],
+    input[type="button"],
+    input,
+    textarea {
+      -webkit-appearance: none;
+      resize: none;
+      outline: none;
+    }
+
+    input[type="checkbox"] {
+      width: 0;
+      height: 0;
+    }
+
+    /* 取消链接高亮  */
+
+    body,
+    div,
+    ul,
+    li,
+    ol,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    input,
+    textarea,
+    select,
+    p,
+    dl,
+    dt,
+    dd,
+    a,
+    button,
+    form,
+    table,
+    th,
+    tr,
+    td,
+    tbody,
+    article,
+    aside,
+    details,
+    figcaption,
+    figure,
+    footer,
+    header,
+    hgroup,
+    menu,
+    nav,
+    section {
+      -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    }
+
+    .app {
+      background-color: #fff;
+    }
+
+    .header {
+      padding: 10px 22px;
+      position: fixed;
+      top: 0;
+      left: 50%;
+      -webkit-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+      transform: translateX(-50%);
+      width: 100%;
+      height: 70px;
+      max-width: 750PX;
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+      background: #fff;
+      z-index: 100;
+      -webkit-box-shadow: 0 2px 16px 0 rgba(0, 0, 0, .1);
+      box-shadow: 0 2px 16px 0 rgba(0, 0, 0, .1);
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+
+    }
+
+    .header .logo {
+      width: 50px;
+      height: 50px;
+      margin-right: 13px;
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+
+    .content {
+      position: relative;
+      bottom: 0;
+      top: 70px;
+      overflow-y: auto;
+      padding-top: 5px;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .desc {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      padding: 24px 15px;
+    }
+
+    .desc .cover {
+      width: 105px;
+      height: 140px;
+      margin-right: 20px;
+      -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, .5);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, .5);
+    }
+
+    .desc .info,
+    .desc .title {
+      -webkit-box-flex: 1;
+      -ms-flex: 1;
+      flex: 1;
+    }
+
+    .row {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+    }
+
+    .desc .score {
+      color: #e63051;
+      font-size: 28px;
+    }
+
+    sub,
+    sup {
+      font-size: 75%;
+      line-height: 0;
+      position: relative;
+      vertical-align: baseline;
+    }
+
+    sub {
+      bottom: -.25em;
+    }
+
+    .desc .score .fraction {
+      bottom: 0;
+    }
+
+    .desc .meta {
+      color: #999;
+      margin-top: 5px;
+      font-size: 14px;
+      line-height: 20px;
+    }
+
+    .desc .read {
+      color: #333;
+    }
+
+    .desc .tag-list {
+      margin-top: 15px;
+    }
+
+    .desc .tag {
+      color: #8a8a8f;
+      font-size: 12px;
+      line-height: 16px;
+      padding: 2px 8px;
+      border-radius: 100px;
+      background-color: #efeff4;
+    }
+
+    .entry,
+    .intro {
+      font-size: 14px;
+      line-height: 20px;
+      padding: 8px 15px 25px;
+      color: #999;
+    }
+
+    .entry {
+      padding: 7.5px 22px;
+      color: #fff;
+      background-color: #e63051;
+      border-radius: 35px;
+      margin: 0 auto 15px;
+      max-width: 80%;
+      overflow: hidden;
+      -o-text-overflow: ellipsis;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      border: #e63051 2px solid;
+      -webkit-box-shadow: 0 0 10px rgba(208, 17, 52, 0.6);
+      box-shadow: 0 0 10px rgba(208, 17, 52, 0.6);
+    }
+
+    .comment {
+      padding: 15px;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: unset;
+      -ms-flex-align: unset;
+      align-items: unset;
+    }
+
+    .comment:first-child {
+      border-top: 1px solid #d8d8d8;
+    }
+
+    .comment .avatar {
+      width: 50px;
+      height: 50px;
+      margin-right: 15px;
+      border-radius: 50%;
+    }
+
+    //.comment:last-child {
+    //  padding-bottom: 100px;
+    //}
+
+    .full {
+      -webkit-box-flex: 1;
+      -ms-flex: 1;
+      flex: 1;
+    }
+
+    .comment .nickname {
+      font-size: 12px;
+      color: #999;
+      line-height: 16.5px;
+    }
+
+    .comment .message {
+      font-size: 14px;
+      line-height: 20px;
+      margin-top: 5px;
+    }
+
+    .fixed {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      max-width: 750px;
+      padding: 2.6666% 14%;
+      text-align: center;
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+      border-top: 1px solid #d8d8d8;
+      background: rgba(255, 255, 255, .8);
+    }
+
+    .fixed .btn-download {
+      border: 0;
+      outline: 0;
+      color: #fff;
+      font-size: 18px;
+      line-height: 25px;
+      width: 100%;
+      padding: 10px;
+      border-radius: 7.5px;
+      background-color: #e63051;
+    }
+
+    .fixed .copyright {
+      padding-top: 10px;
+      width: 100%;
+      opacity: .35;
+      font-size: 10px;
+      color: #e63051;
+    }
+    .copyright {
+      padding: 10px 20px 75px;
+      width: 100%;
+      opacity: .35;
+      font-size: 10px;
+      color: #e63051;
+      text-align: center;
+      box-sizing: border-box;
+    }
+
+    .toasted-container {
+      position: fixed;
+      top: 20%;
+      left: 50%;
+      -webkit-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+      transform: translateX(-50%);
+      -ms-touch-action: pan-y;
+      touch-action: pan-y;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      -webkit-user-drag: none;
+      -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+      opacity: 1;
+      width: auto;
+      clear: both;
+      max-width: 100%;
+      height: auto;
+      word-break: normal;
+      display: -ms-flexbox;
+      display: -webkit-box;
+      display: flex;
+      -ms-flex-align: center;
+      -webkit-box-align: center;
+      align-items: center;
+      -ms-flex-pack: justify;
+      -webkit-box-pack: justify;
+      justify-content: space-between;
+      -webkit-box-sizing: inherit;
+      box-sizing: inherit;
+      border-radius: 2px;
+      min-height: 38px;
+      line-height: 1.1em;
+      background-color: rgba(53, 53, 53, .9);
+      padding: 0 20px;
+      font-size: 15px;
+      font-weight: 300;
+      color: #fff;
+      -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, .12), 0 1px 2px rgba(0, 0, 0, .24);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, .12), 0 1px 2px rgba(0, 0, 0, .24);
+      display: none;
+    }
+
+
+    .loader {
+      width: 30px;
+      height: 30px;
+      position: relative;
+    }
+
+    .ball-scale-multiple {
+
+      width: 30px;
+      height: 30px;
+    }
+
+    .ball-beat>div,
+    .ball-scale-multiple>div {
+      background-color: #fff;
+      border-radius: 100%;
+    }
+
+    .ball-scale-multiple>div {
+      position: absolute;
+      opacity: 0;
+      margin: 0;
+      width: 30px;
+      height: 30px;
+      -webkit-animation: ball-scale-multiple 1s 0s linear infinite;
+      animation: ball-scale-multiple 1s 0s linear infinite;
+    }
+
+    .ball-scale-multiple>div:nth-child(2) {
+      -webkit-animation-delay: -.4s;
+      animation-delay: -.4s;
+    }
+
+    .ball-scale-multiple>div:nth-child(3) {
+      -webkit-animation-delay: -.2s;
+      animation-delay: -.2s;
+    }
+
+    @-webkit-keyframes ball-scale-multiple {
+      0% {
+        -webkit-transform: scale(0);
+        transform: scale(0);
+        opacity: 0;
+      }
+
+      5% {
+        opacity: 1;
+      }
+
+      100% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+        opacity: 0;
+      }
+    }
+
+    @keyframes ball-scale-multiple {
+      0% {
+        -webkit-transform: scale(0);
+        transform: scale(0);
+        opacity: 0;
+      }
+
+      5% {
+        opacity: 1;
+      }
+
+      100% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+        opacity: 0;
+      }
+    }
+
+    @-webkit-keyframes fadeInDown {
+      0% {
+        opacity: 0;
+        -webkit-transform: translate3d(-50%, -100%, 0);
+        transform: translate3d(-50%, -100%, 0)
+      }
+
+      to {
+        opacity: 1;
+        -webkit-transform: translate3d(-50%, 0, 0);
+        transform: translate3d(-50%, 0, 0)
+      }
+    }
+
+    @keyframes fadeInDown {
+      0% {
+        opacity: 0;
+        -webkit-transform: translate3d(-50%, -100%, 0);
+        transform: translate3d(-50%, -100%, 0)
+      }
+
+      to {
+        opacity: 1;
+        -webkit-transform: translate3d(-50%, 0, 0);
+        transform: translate3d(-50%, 0, 0)
+      }
+    }
+
+    .fadeInDown {
+      -webkit-animation-name: fadeInDown;
+      animation-name: fadeInDown;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+    }
+
+    .animated {
+      -webkit-animation-duration: .5s;
+      animation-duration: .5s;
+      -webkit-animation-fill-mode: both;
+      animation-fill-mode: both
+    }
+
+    .weixin-tip {
+      background: rgba(0, 0, 0, .8);
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      z-index: 1000;
+      display: none;
+    }
+
+    .weixin-tip img {
+      width: 100%;
+    }
+    iframe{display:none !important;}
+  </style>
+  <script>
+  </script>
+</head>
+
+<body>
+  <div class="app">
+    <header class="header">
+      <div class="logo"></div>
+      <p><strong class="appName"></strong> - <span class="subtitle">xxx</span></p>
+    </header>
+    <div class="content">
+      <img class="copyright_logo" alt="" style="position: absolute;top: 5px;left: 18px;width: 55px;">
+      <section class="desc">
+        <div>
+          <img class="cover" src="imgs/1576055450961.jpg" alt>
+        </div>
+
+        <div class="info">
+          <div class="row">
+            <strong class="title bookName">xx</strong>
+            <span>
+              <span class="score">
+                9
+                <!-- 9.<sub class="fraction">6</sub> -->
+              </span>分
+            </span>
+          </div>
+          <div style="font-size: 12px; display: block" class="alias">
+            (又名：<strong style="font-size: 14px;color:#e63051" class="alias-text">xx</strong>)
+          </div>
+          <div class="meta" style="color:#e63051">主角:
+            <span style="font-weight: 700" class="roles">xx</span></div>
+          <div class="meta">状态:
+            <span class="status">完结</span></div>
+          <div class="meta">
+            <span class="read readNumber">11</span>名书友正在看</div>
+          <div class="tag-list tags">
+          </div>
+        </div>
+      </section>
+      <section class="intro">
+        <div>简介:
+          <span>55</span></div>
+      </section>
+      <section class="row">
+        <div class="entry js-download">
+          <span class="latestChapter">44</span>
+        </div>
+      </section>
+      <section>
+        <div class="comment">
+          <div>
+            <img class="avatar" src="./imgs/p1.png" alt="当爱已成往事"></div>
+          <div class="full">
+            <div class="nickname">当爱已成往事</div>
+            <div class="message">这本书非常好看，值得收藏阅读。特别是在这个免费小说APP上看书特别舒服，所有章节免费无广告。不像其他小说网和阅读器，基本都是看几章就开始收费，要么就是内容里面一堆的广告。
+            </div>
+          </div>
+        </div>
+        <div class="comment">
+          <div>
+            <img class="avatar" src="./imgs/p2.png" alt="飘逸"></div>
+          <div class="full">
+            <div class="nickname">飘逸</div>
+            <div class="message">在这儿看书干净舒服，没有乱七八糟的弹窗和小广告，眼睛不会看着难受。</div>
+          </div>
+        </div>
+        <div class="comment">
+          <div>
+            <img class="avatar" src="./imgs/p3.jpg" alt="飘逸"></div>
+          <div class="full">
+            <div class="nickname">醉卧松岗</div>
+            <div class="message">这本书更新得挺快的嘛，几天不看都更了那么多。</div>
+          </div>
+        </div>
+      </section>
+      <div class="copyright"></div>
+      <section class="fixed">
+        <button id="btn-download" class="btn-download js-download">66</button>
+      </section>
+    </div>
+  </div>
+  <div class="toasted-container">
+    <div class="loader">
+      <div class="ball-scale-multiple">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+    下载中 !!
+  </div>
+  <div class="weixin-tip">
+    <img src="imgs/weixin-tip.png" alt="" srcset="">
+  </div>
+</body>
+
+<script>
+  var appInfo = {
+    defaultAppName: "ceshi",
+    androidAppName: "",
+    iosAppName: "",
+    defaultLogo: "1576055450961.jpg",
+    androidLogo: "",
+    iosLogo: "",
+    tags: "22",
+    
+			'99':{
+				androidDownload: '77',
+				iosDownload: '88',
+				copyright: '1010',
+				copyright_logo: '1576055450961.jpg'
+			},
+			
+			'1313':{
+				androidDownload: '1111',
+				iosDownload: '1212',
+				copyright: '1414',
+				copyright_logo: '1576055450961.jpg'
+			},
+			
+    default: {
+      androidDownload: '77',
+      iosDownload: '88',
+      copyright: '1010',
+      'copyright_logo': '1576055450961.jpg'
+    }
+  }
+  
+  var appInfoHost = appInfo[window.location.host] || appInfo.default
+  document.querySelector(".copyright").innerHTML = appInfoHost.copyright
+  document.querySelector(".copyright_logo").src = './imgs/' + appInfoHost.copyright_logo
+  if(appInfoHost.copyright_logo == ''){
+    document.querySelector(".copyright_logo").style.display = "none"
+  }
+
+  function getQueryString(name) {
+    var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+    var r = window.location.search.substr(1).match(reg);
+    if (r != null) {
+      return r[2];
+    }
+    return null;
+  }
+  var kwid = getQueryString('keywordid');
+  var ca = getQueryString('creative');
+
+  var tagsHtml = ""
+  var tagHtml = '<span class="tag">{{tag}}</span> '
+  var tags = appInfo.tags.replace("，",",").replace(" ",",").split(",")
+  for (var i = 0; i < tags.length; i++) {
+    tagsHtml += tagHtml.replace(/{{tag}}/, tags[i])
+  }
+  document.querySelector(".tags").innerHTML = tagsHtml
+
+  if (/(iPhone|iPad|iPod|iOS)/i.test(navigator.userAgent)) {
+    var logo = (appInfo.iosLogo || appInfo.defaultLogo);
+    var appName = (appInfo.iosAppName || appInfo.defaultAppName);
+    document.querySelector(".logo").style.backgroundImage = "url(./imgs/" + logo + ")";
+    document.querySelector("head > title").innerHTML = "xx - "+appName;
+    document.querySelector(".appName").innerHTML = appName;
+  } else {
+    var logo = (appInfo.androidLogo || appInfo.defaultLogo);
+    var appName = (appInfo.androidAppName || appInfo.defaultAppName);
+    document.querySelector(".logo").style.backgroundImage = "url(./imgs/" + logo + ")";
+    document.querySelector("head > title").innerHTML = "xx - "+appName;
+    document.querySelector(".appName").innerHTML = appName;
+  }
+
+  document.querySelector(".app").onclick = function () {
+    if (/MicroMessenger/i.test(navigator.userAgent)) {
+      document.querySelector(".weixin-tip").style.display = "block"
+      return
+    }
+    if (/(iPhone|iPad|iPod|iOS)/i.test(navigator.userAgent)) {
+      window.location.href = appInfoHost.iosDownload.replace(/{keywordid}/, kwid).replace(/{creative}/, ca)
+    } else {
+      window.location.href = appInfoHost.androidDownload.replace(/{keywordid}/, kwid).replace(/{creative}/, ca)
+      //var downloadIframe = document.createElement("iframe")
+      //downloadIframe.id = "download_iframe"
+      //downloadIframe.style.display = "none"
+
+      //downloadIframe.src = appInfoHost.androidDownload.replace(/{keywordid}/, kwid).replace(/{creative}/, ca)
+
+
+      //var toasted = document.querySelector(".toasted-container")
+      //var animationend = function (e) {
+      //  e.target.classList.remove("animated")
+      //  toasted.removeEventListener("webkitAnimationEnd", animationend)
+      //  toasted.removeEventListener("animationend", animationend)
+      //}
+      //toasted.addEventListener("webkitAnimationEnd", animationend)
+      //toasted.addEventListener("animationend", animationend)
+      //toasted.classList.add("fadeInDown")
+      //toasted.classList.add("animated")
+      //document.body.appendChild(downloadIframe)
+      //setTimeout(function () {
+      //  toasted.classList.remove("fadeInDown")
+      //}, 2000)
+    }
+  }
+</script>
+
+</html>

@@ -1,0 +1,8 @@
+*.py[cod]
+*.log
+.project
+.pydevproject
+.DS_Store
+.settings
+node_modules/*
+~*.*

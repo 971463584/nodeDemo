@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    ul,
+    ol,
+    li {
+        list-style: none;
+    }
+
+    body {
+        width: 100%;
+        height: 100%;
+        background: #000000
+    }
+
+    header {
+        width: 100%;
+        height: 50px;
+        border-bottom: 1px solid #000000;
+        line-height: 50px;
+        font-size: 18px;
+        box-sizing: border-box;
+        padding: 15px;
+    }
+
+    header>a {
+        margin-left: 15px;
+        display: block;
+        width: 48px;
+        height: 35px;
+    }
+
+    header>a>img {
+        width: 100%;
+        height: 100%;
+
+    }
+
+    #newCeatePage {
+        margin: auto;
+        width: 1200px;
+        padding: 15px;
+    }
+
+    #newCeatePage div {
+        height: 65px;
+        box-sizing: border-box;
+    }
+
+    #newCeatePage div>p,
+    #newCeatePage div>div {
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    #newCeatePage div>p {
+        height: 100%;
+        width: 15%;
+        color: #ffffff;
+    }
+
+    #newCeatePage div>div {
+        height: 100%;
+        width: 75%;
+    }
+
+    #newCeatePage div input[type="text"] {
+        width: 340px;
+        height: 30px;
+    }
+
+    #newCeatePage div input[type="number"] {
+        width: 340px;
+        height: 30px;
+    }
+
+    #newCeatePage div input[type="file"] {
+        color: #ffffff;
+    }
+
+    #newCeatePage .bookState {
+        color: #ffffff;
+    }
+
+    #newCeatePage .bookStyle {
+        height: 100px;
+        color: #ffffff;
+
+    }
+
+    #newCeatePage .bookStyle>p {
+        vertical-align: middle;
+    }
+
+    #newCeatePage .bookIntroduce textarea {
+        width: 895px;
+        height: 45px;
+        resize: none;
+        /*禁止textarea拉伸*/
+    }
+
+    #newCeatePage>input[type="submit"],
+    #newCeatePage>input[type="reset"] {
+        padding: 5px 15px;
+        display: inline-block;
+        font-size: 16px;
+        border-radius: 5px;
+        border: none;
+        outline: none;
+        background-color: #ffffff;
+        color: #000000;
+        cursor: pointer;
+    }
+
+    #newCeatePage>input[type="submit"] {
+        margin-right: 35px;
+    }
+
+    #logos div img {
+        width: 50px;
+        height: 50px;
+    }
+
+    .bookFace div img {
+        width: 50px;
+        height: 50px;
+    }
+    .android_logo div img,
+    .ios_logo div img,
+    .app_logo div img {
+        width: 50px;
+        height: 50px;
+    }
+
+    #newCeatePage #config_box {
+        height: 235px;
+        margin-bottom: 15px;
+    }
+
+    #newCeatePage #config_box>div {
+        width: 100%;
+        height: 50px;
+    }
+
+    #newCeatePage #config_box>span {
+        margin-left: 325px;
+        border: 2px solid #ffffff;
+        color: firebrick;
+        cursor: pointer;
+        margin-top: 5px;
+        display: block;
+        width: 65px;
+        -webkit-user-select: none;
+    }
+    #newCeatePage #logos {
+        height: 125px;
+    }
+
+    #newCeatePage .select_logo {
+        color: #fff;
+    }
+
+    #newCeatePage .android_logo,
+    #newCeatePage .ios_logo {
+        height: 60px;
+    }
+</style>
+
+<body>
+    <header>
+        <a href="/oldPage/oldPage"><img src="../pub/images/back.png" alt=""></a>
+    </header>
+    <form id="newCeatePage" method="post" enctype="multipart/form-data">
+        <div class="modle_num">
+            <p>模板id：</p>
+            <div>
+                <input type="text" name="modle_num" disabled>
+            </div>
+        </div>
+        <div class="pageNum">
+            <p>落地页编号：</p>
+            <div>
+                <input type="text" name="pageNum" autocomplete="off" disabled>
+            </div>
+        </div>
+        <div class="select_logo">
+            <p>请选择logo</p>
+            <input type="radio" name="logos" value="1" required>统一的logo
+            <input type="radio" name="logos" value="2" required>区分logo
+        </div>
+        <div id="logos">
+
+        </div>
+        <div class="appName">
+            <p>app名字：</p>
+            <div>
+                <input type="text" name="appName" autocomplete="off">
+            </div>
+        </div>
+        <div class="appAd">
+            <p>广告词：</p>
+            <div>
+                <input type="text" name="appAd" autocomplete="off">
+            </div>
+        </div>
+        <div class="bookFace">
+            <p>小说封面：</p>
+            <div>
+                <img src="" alt="">
+                <input type="file" name="bookFace">
+            </div>
+        </div>
+        <div class="bookName">
+            <p>小说名：</p>
+            <div>
+                <input type="text" name="bookName" autocomplete="off">
+            </div>
+        </div>
+        <div class="bookAlias">
+            <p>小说别名：</p>
+            <div>
+                <input type="text" name="bookAlias" autocomplete="off">
+            </div>
+        </div>
+        <div class="bookAuthor">
+            <p>小说主角：</p>
+            <div>
+                <input type="text" name="bookAuthor" autocomplete="off">
+            </div>
+        </div>
+        <div class="bookState" data-info="{{bookState}}">
+            <p>小说状态：</p>
+            <div>
+                <input type="radio" name="bookState" value="完结">完结
+                <input type="radio" name="bookState" value="连载中">连载中
+            </div>
+        </div>
+        <div class="bookFans">
+            <p>小说观看人数：</p>
+            <div>
+                <input type="number" name="bookFans" autocomplete="off" min="0">
+            </div>
+        </div>
+        <div class="bookStyle">
+            <p>小说特色：</p>
+            <div>
+                <input type="text" name="bookStyle" autocomplete="off">
+            </div>
+        </div>
+        <div class="bookNum">
+            <p>小说分数：</p>
+            <div>
+                <input type="number" name="bookNum" autocomplete="off" step="0.1" min="0" max="10.0">
+            </div>
+        </div>
+        <div class="latestChapter">
+            <p>最后章节：</p>
+            <div>
+                <input type="text" name="latestChapter" autocomplete="off" required>
+            </div>
+        </div>
+        <div class="bookIntroduce">
+            <p>小说简介：</p>
+            <div>
+                <textarea name="bookIntroduce"></textarea>
+            </div>
+        </div>
+        <div class="bookDown">
+            <p>小说下载说明：</p>
+            <div>
+                <input type="text" name="bookDown" autocomplete="off">
+            </div>
+        </div>
+        <button class="add_btn">添加配置</button>
+        <br/>
+        <input type="submit" value="保存" id="submit_Btn">
+    </form>
+</body>
+<script src="../pub/javascripts/jquery.min.js"></script>
+<script>
+    window.onload = function () {
+        //拿到模板号
+        var num = window.location.search;
+        var str = num.substr(1);
+        var arr = str.split('&');
+        var obj = {};
+        var newArr = [];
+        arr.forEach(function (i, v) {
+            newArr = i.split('=');
+            if (typeof obj[newArr[0]] == 'undefined') {
+                obj[newArr[0]] = newArr[1];
+            }
+        });
+        console.log(obj);
+
+        //获取pages的数据
+        $.ajax({
+            type: 'post',
+            url: '/editFile/editFile',
+            data: {
+                'channel': obj.channel,
+                'appName': obj.appName,
+                'pageNum': obj.pageNum
+            },
+            success: function (data) {
+                console.log(data);
+                $('.modle_num div input').val(obj.modleId);
+                $('.pageNum div input').val(obj.pageNum);
+                $('.appName div input').val(data.app_Name);
+                $('.appAd div input').val(data.appAd);
+                $('.bookName div input').val(data.bookName);
+                $('.bookAuthor div input').val(data.bookAuthor);
+                $('.bookFans div input').val(data.bookFans);
+                $('.bookNum div input').val(data.bookNum);
+                $('.bookStyle div input').val(data.bookStyle);
+                $('.bookDown div input').val(data.bookDown);
+                $('.bookAlias div input').val(data.bookAlias);
+                $('.latestChapter div input').val(data.latestChapter);
+                $('.bookIntroduce div textarea').val(data.bookIntroduce);
+                $('.bookSupport div input').val(data.bookSupport);
+                $('.bookFace div img').attr('src',"/pages/"+data.channelName+"/"+data.appName+"/"+obj.pageNum+"/imgs/"+data.cover);
+                $('.bookIntroduce div textarea').val();
+                //书的状态
+                if (data.bookState == "完结") {
+                    $('.bookState div input:nth-child(1)').attr('checked', 'checked');
+                } else if (data.bookState == "连载中") {
+                    $('.bookState div input:nth-child(2)').attr('checked', 'checked');
+                }
+                
+                //配置
+                var config_num = data.app_hostname.length;
+                let configHtml="";
+                for (var i = 0; i < config_num; i++) {
+                    configHtml += `
+                    <div id="config_box">
+                        <div class="android_downLink">
+                            <p>安卓监控链接${i+1}：</p>
+                            <div>
+                                <input type="text" name="android_downLink" autocomplete="off" required value="${data.android_downLink[i]}">
+                            </div>
+                        </div>
+                        <div class="ios_downLink">
+                            <p>ios监控链接${i+1}：</p>
+                            <div>
+                                <input type="text" name="ios_downLink" autocomplete="off" required value="${data.ios_downLink[i]}">
+                            </div>
+                        </div>
+                        <div class="app_hostname">
+                            <p>推广域名${i+1}：</p>
+                            <div>
+                                <input type="text" name="app_hostname" autocomplete="off" required value="${data.app_hostname[i]}">
+                            </div>
+                        </div>
+                        <div class="app_copyright">
+                            <p>推广域名版权${i+1}：</p>
+                            <div>
+                                <input type="text" name="app_copyright" autocomplete="off" required value="${data.app_copyright[i]}">
+                            </div>
+                        </div>
+                        <span class="del_config">删除配置</span>
+                    </div>
+                    `
+                }
+                $('.add_btn').before(configHtml);
+
+                //logo
+                let logoHtml=""
+                if (data.logos == 1) {
+                    $('.select_logo input:nth-child(2)').attr('checked', 'checked');
+                    logoHtml += `
+                        <div class="app_logo">
+                            <p>app的logo：</p>
+                            <div>
+                                <img src="/pages/${data.channelName}/${data.appName}/${data.pageNum}/imgs/${data.logo}" alt="">
+                                <input type="file" name="app_logo" autocomplete="off">
+                            </div>
+                        </div>
+                        `;
+                        $('#logos').html(logoHtml);
+                    //显示logo
+                    $('input[name="logos"]').click((ev) => {
+                        let logoVal = ev.currentTarget.defaultValue;
+                        if (logoVal == '1') {
+                            $('#logos').html(logoHtml);
+                        } else if(logoVal == '2'){
+                            let logoHtml = `
+                            <div class="android_logo">
+                                <p>安卓的logo：</p>
+                                <div>
+                                    <input type="file" name="android_logo" autocomplete="off">
+                                </div>
+                            </div>
+                            <div class="ios_logo">
+                                <p>ios的logo：</p>
+                                <div>
+                                    <input type="file" name="ios_logo" autocomplete="off">
+                                </div>
+                            </div>
+                            `;
+                            $('#logos').html(logoHtml);
+                        }
+                    })
+                } else{
+                    $('.select_logo input:nth-child(3)').attr('checked', 'checked');
+                    logoHtml += `
+                        <div class="android_logo">
+                            <p>安卓的logo：</p>
+                            <div>
+                                <img src="/pages/${data.channelName}/${data.appName}/${data.pageNum}/imgs/${data.androidLogo}" alt="">
+                                <input type="file" name="android_logo" autocomplete="off">
+                            </div>
+                        </div>
+                        <div class="ios_logo">
+                            <p>ios的logo：</p>
+                            <div>
+                                <img src="/pages/${data.channelName}/${data.appName}/${data.pageNum}/imgs/${data.iosLogo}" alt="">
+                                <input type="file" name="ios_logo" autocomplete="off">
+                            </div>
+                        </div>
+                        `;
+                        $('#logos').html(logoHtml);
+                    //显示logo
+                    $('input[name="logos"]').click((ev) => {
+                        let logoVal = ev.currentTarget.defaultValue;
+                        if (logoVal == '1') {
+                            let logoHtml = `
+                            <div class="app_logo">
+                                <p>app的logo：</p>
+                                <div>
+                                    <input type="file" name="app_logo" autocomplete="off">
+                                </div>
+                            </div>
+                            `;
+                            $('#logos').html(logoHtml);
+                        } else if(logoVal == '2'){
+                            $('#logos').html(logoHtml);
+                        }
+                    })
+                }
+                var formdata = $('form');
+                var formUrl = "/modles/modles?modle=" + obj.modleId +
+                    "&pageNum=" + obj.pageNum +"&channelName="+obj.channel+"&appName="+obj.appName
+                formdata.attr('action', formUrl);
+            }
+        })
+
+        //添加配置
+        var newConfigHtml = `
+        <div id="config_box">
+            <div class="android_downLink">
+                <p>安卓监控链接：</p>
+                <div>
+                    <input type="text" name="android_downLink" autocomplete="off" required>
+                </div>
+            </div>
+            <div class="ios_downLink">
+                <p>ios监控链接：</p>
+                <div>
+                    <input type="text" name="ios_downLink" autocomplete="off" required>
+                </div>
+            </div>
+            <div class="app_hostname">
+                <p>推广域名：</p>
+                <div>
+                    <input type="text" name="app_hostname" autocomplete="off" required>
+                </div>
+            </div>
+            <div class="app_copyright">
+                <p>推广域名版权：</p>
+                <div>
+                    <input type="text" name="app_copyright" autocomplete="off" required>
+                </div>
+            </div>
+            <span class="del_config">删除配置</span>
+        </div>
+        `;
+        $('.add_btn').click(() => {
+            $('.add_btn').before(newConfigHtml);
+        });
+
+        //删除配置
+        $('#newCeatePage').on('click', '.del_config', function () {
+            console.log()
+            $(this).parent().remove();
+            event.stopPropagation();
+        });
+    }
+</script>
+
+</html>

@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>oldPage</title>
+</head>
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    ul,
+    ol,
+    li {
+        list-style: none;
+    }
+
+    html {
+        height: 100%;
+        width: 100%;
+    }
+
+    body {
+        color: #fff;
+        width: 100%;
+        height: 100%;
+        background-color: #000000;
+    }
+
+    header {
+        width: 100%;
+        height: 50px;
+        border-bottom: 1px solid #000000;
+        /* background: linear-gradient(#fff1eb, #ace0f9); */
+        line-height: 50px;
+        font-size: 18px;
+    }
+
+    header>a {
+        margin-left: 15px;
+    }
+
+    .module_list li {
+        margin-top: 15px;
+        margin-left: 20px;
+        display: inline-block;
+    }
+
+    .module_list img {
+        display: inline-block;
+        width: 235px;
+        height: 360px;
+        background-image: url('../pub/images/Fileplus.png');
+        background-position: center center;
+    }
+
+    .module_list div button {
+        width: 55px;
+        height: 35px;
+        border: none;
+        border-radius: 15px;
+        outline: none;
+        cursor: pointer;
+    }
+
+    .module_list div button:nth-child(1) {
+        background-color: #fff1eb;
+        background-image: url('../pub/images/chakan.png');
+        background-repeat: no-repeat;
+        background-size: 47%;
+        background-position: center;
+
+    }
+
+    .module_list div button:nth-child(2) {
+        background-color: #fff1eb;
+        background-image: url('../pub/images/bianji.png');
+        background-repeat: no-repeat;
+        background-size: 47%;
+        background-position: center;
+    }
+
+    .module_list div button:nth-child(3) {
+        background-color: #fff1eb;
+        background-image: url('../pub/images/shanchu.png');
+        background-repeat: no-repeat;
+        background-size: 47%;
+        background-position: center;
+    }
+
+    .module_list div button:nth-child(4) {
+        background-color: #fff1eb;
+        background-image: url('../pub/images/genxing.png');
+        background-repeat: no-repeat;
+        background-size: 47%;
+        background-position: center;
+    }
+
+    .module_list li p {
+        color: #fff;
+        text-align: center;
+        font-size: 18px;
+    }
+
+    .channelName {
+        width: 100%;
+        height: 30px;
+        text-align: center;
+        background-color: #fff;
+        color: #000000;
+        line-height: 30px;
+        font-size: 18px;
+    }
+</style>
+
+<body>
+    <header>
+        <a href="/"><img src="../pub/images/back.png" alt=""></a>
+    </header>
+    <main>
+        <div class="module_list">
+
+        </div>
+    </main>
+</body>
+<script src="../pub/javascripts/jquery.min.js"></script>
+<script>
+    (() => {
+        //拿到已存在的模板
+        var module_list = document.querySelector('.module_list');
+        var module_list_html = '';
+        $.ajax({
+            url: "/historyDirectory/historyDirectory", //json文件位置，文件名
+            type: "get", //请求方式为get
+            dataType: "json", //返回数据格式为json
+            success: function (data) { //请求成功完成后要执行的方法 
+                var pageData = data;
+                // console.log(pageData);
+                for (let i = 0; i < pageData.aa.length; i++) {
+                    module_list_html +=
+                        `<p class="channelName" title="${pageData.aa[i]}">${pageData.aa[i]}</p>`
+                    module_list_html += `<ul>
+                            
+                        `
+                    for (let j = 0; j < pageData.bb.length; j++) {
+                        if (pageData.bb[j].channelName == pageData.aa[i]) {
+                            // console.log(pageData.bb[j]);
+                            module_list_html += `
+                                <li data-id="${pageData.bb[j].id}">
+                                <p title="${pageData.bb[j].appName}">包名：<strong>${pageData.bb[j].appName}</strong>----落地页：<em>${pageData.bb[j].lodiye}</em></p>
+                                <img src="/pages/${pageData.bb[j].channelName}/${pageData.bb[j].appName}/${pageData.bb[j].lodiye}/remove.jpeg" title="${pageData.bb[j].lodiye}"></img>
+                                <div>
+                                    <button class="look_module" title="查看"></button>
+                                    <button class="edit_module" title="编辑"></button>
+                                    <button class="del_module" title="删除"></button>
+                                    <button class="update_module" title="更新"></button>
+                                </div>
+                            </li>
+                            `;
+                        }
+
+                    }
+                    module_list_html += `</ul>`;
+                }
+                module_list.innerHTML = module_list_html;
+            },
+            contentType: 'application/x-www-form-urlencoded',
+            async: true,
+            processData: true,
+        })
+
+        //查看
+        $('.module_list').on('click', '.look_module', function () {
+            var look_pageNum = $(this).parent().prev().attr("title"); //落地页
+            var look_appName = $(this).parent().prev().prev().attr("title"); //包名
+            var look_channel = $(this).parent().prev().parent().parent().prev().attr('title'); //渠道
+            window.location.href = '/pages/' + look_channel + '/' + look_appName +
+                '/' +
+                look_pageNum + '/index.html';
+        });
+        //编辑
+        $('.module_list').on('click', '.edit_module', function () {
+            var edit_pageNum = $(this).parent().prev().attr("title");
+            var edit_modleNum = $(this).parent().parent().attr("data-id");
+            var edit_appName = $(this).parent().prev().prev().attr("title"); //包名
+            var edit_channel = $(this).parent().prev().parent().parent().prev().attr('title'); //渠道
+            window.location.href = '/editFrom/editFrom?channel=' + edit_channel + '&appName=' +
+                edit_appName + '&pageNum=' + edit_pageNum + '&modleId=' +
+                edit_modleNum;
+        });
+        //删除
+        $('.module_list').on('click', '.del_module', function () {
+            var del_pageNum = $(this).parent().prev().attr("title");
+            var del_appName = $(this).parent().prev().prev().attr("title"); //包名
+            var del_channel = $(this).parent().prev().parent().parent().prev().attr('title'); //渠道
+            console.log(del_pageNum);
+            var btn = confirm("你确定要删除吗？删除就再也回不来了！");
+            if (btn == true) {
+                $.ajax({
+                    url: '/delFile/delFile',
+                    type: 'post',
+                    data: {
+                        "pageNum": del_pageNum,
+                        "appName": del_appName,
+                        "channel": del_channel
+                    }
+                })
+                window.location.reload();
+            }
+        });
+        //更新
+        $('.module_list').on('click', '.update_module', function () {
+            var up_pageNum = $(this).parent().prev().attr("title");
+            var modle_id = $(this).parent().parent().attr("data-id");
+            var up_appName = $(this).parent().prev().prev().attr("title"); //包名
+            var up_channel = $(this).parent().prev().parent().parent().prev().attr('title'); //渠道
+            console.log(up_pageNum);
+            $.ajax({
+                url: '/updataFile/updataFile',
+                type: 'get',
+                data: {
+                    "pageNum": up_pageNum,
+                    "appName": up_appName,
+                    "channel": up_channel
+                },
+                success: function (data) {
+                    // console.log(data);
+                    if (data == 'yes') {
+                        confirm("目前已经是最新的版本了喔！");
+                    } else if (data == 'no') {
+                        var up_btn = confirm("目前已经还不是最新的版本，要更新到最新的版本嘛？");
+                        if (up_btn) {
+
+                            // console.log(modle_id);
+                            if (modle_id == 1) {
+                                $.ajax({
+                                    url: '/modles/modles',
+                                    type: 'post',
+                                    data: {
+                                        "pageNum": up_pageNum,
+                                        "appName": up_appName,
+                                        "channel": up_channel
+                                    },
+                                    success: function (data) {
+                                        // console.log(data);
+                                        if (data == 'ok') {
+                                            confirm("已经更新了喔！刷新看看");
+                                        }
+                                    }
+                                })
+                            } else {
+                                $.ajax({
+                                    url: '/modles/modles' +
+                                        modle_id + '',
+                                    type: 'post',
+                                    data: {
+                                        "pageNum": up_pageNum,
+                                        "appName": up_appName,
+                                        "channel": up_channel
+                                    },
+                                    success: function (data) {
+                                        // console.log(data);
+                                        if (data == 'ok') {
+                                            confirm("已经更新了喔！刷新看看");
+                                        }
+                                    }
+                                })
+                            }
+
+                        }
+                    }
+                }
+            })
+        });
+
+    })();
+</script>
+
+</html>

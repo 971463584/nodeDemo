@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>newPage</title>
+</head>
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    ul,
+    ol,
+    li {
+        list-style: none;
+    }
+
+    body,
+    .mouldList {
+        width: 100%;
+        height: 100%;
+        background: #000000;
+    }
+
+    header {
+        width: 100%;
+        height: 50px;
+        border-bottom: 1px solid #000000;
+        line-height: 50px;
+        font-size: 18px;
+        box-sizing: border-box;
+        padding: 15px;
+    }
+
+    header>a {
+        margin-left: 15px;
+        display: block;
+        width: 48px;
+        height: 35px;
+    }
+
+    header>a>img {
+        width: 100%;
+        height: 100%;
+    }
+
+    .mouldList ul {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .mouldList ul li {
+        width: 300px;
+        height: 550px;
+        margin: 15px;
+    }
+
+    .mouldList ul li img {
+        width: 100%;
+        height: 100%;
+    }
+
+    .mouldList ul li p {
+        color: #ffffff;
+        text-align: center;
+
+    }
+</style>
+
+<body>
+    <header>
+        <a href="/"><img src="../pub/images/back.png" alt=""></a>
+    </header>
+    <main>
+        <div class="mouldList">
+            <ul>
+                <!-- <li>
+                    <img src="./image_2019_10_12T02_45_47_408Z.png" alt="">
+                    <p>模板1</p>
+                </li> -->
+            </ul>
+        </div>
+    </main>
+</body>
+
+<script src="../pub/javascripts/jquery.min.js"></script>
+<script>
+    window.onload = function () {
+        var mouldList = document.querySelector('.mouldList ul');
+        //获取模板数据
+        $.ajax({
+            type: 'get',
+            url: '/newPage/newPageImg',
+            success: function (data) {
+                // console.log(data);
+                var mouldPicList = data;
+                var mouldListHtml = '';
+                mouldPicList.map((item, index) => {
+                    return mouldListHtml +=
+                        `<li>
+                            <img src=${item.img} title='${item.id}'>
+                            <p>模板${index+1}</p>
+                        </li>`
+                });
+                mouldList.innerHTML = mouldListHtml;
+            }
+        });
+
+        //进去填写对应的表单
+        mouldList.onclick = function (ev) {
+            if (ev.target.tagName == 'IMG') {
+                // console.log(ev.target.title);
+                var mouldNum = ev.target.title;
+                location.href = '/newFrom/template' + mouldNum + 'NewFrom?Id=' + mouldNum;
+            }
+        }
+    }
+</script>
+
+</html>

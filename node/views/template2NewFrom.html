@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    ul,
+    ol,
+    li {
+        list-style: none;
+    }
+
+    body {
+        width: 100%;
+        height: 100%;
+        background: #000000
+    }
+
+    header {
+        width: 100%;
+        height: 50px;
+        border-bottom: 1px solid #000000;
+        line-height: 50px;
+        font-size: 18px;
+        box-sizing: border-box;
+        padding: 15px;
+    }
+
+    header>a {
+        margin-left: 15px;
+        display: block;
+        width: 48px;
+        height: 35px;
+    }
+
+    header>a>img {
+        width: 100%;
+        height: 100%;
+
+    }
+
+    #newCeatePage {
+        margin: auto;
+        width: 1200px;
+        padding: 15px;
+    }
+
+    #newCeatePage div {
+        height: 65px;
+        box-sizing: border-box;
+    }
+
+    #newCeatePage div>p,
+    #newCeatePage div>div {
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    #newCeatePage div>p {
+        height: 100%;
+        width: 15%;
+        color: #ffffff;
+    }
+
+    #newCeatePage div>div {
+        height: 100%;
+        width: 75%;
+    }
+
+    #newCeatePage div input[type="text"] {
+        width: 340px;
+        height: 30px;
+    }
+
+    #newCeatePage div input[type="number"] {
+        width: 340px;
+        height: 30px;
+    }
+
+    #newCeatePage div input[type="file"] {
+        color: #ffffff;
+    }
+
+    #newCeatePage .bookState {
+        color: #ffffff;
+    }
+
+    #newCeatePage .bookStyle {
+        height: 100px;
+        color: #ffffff;
+
+    }
+
+    #newCeatePage .bookStyle>p {
+        vertical-align: middle;
+    }
+
+    #newCeatePage .bookIntroduce textarea {
+        width: 895px;
+        height: 45px;
+        resize: none;
+        /*禁止textarea拉伸*/
+    }
+
+    #newCeatePage>div>input[type="submit"],
+    #newCeatePage>div>input[type="reset"] {
+        padding: 5px 15px;
+        display: inline-block;
+        font-size: 16px;
+        border-radius: 5px;
+        border: none;
+        outline: none;
+        background-color: #ffffff;
+        color: #000000;
+        cursor: pointer;
+        margin-top: 20px;
+    }
+
+    #newCeatePage>div>input[type="submit"] {
+        margin-right: 35px;
+    }
+
+    #newCeatePage .chapter_box {
+        height: 230px;
+        margin-bottom: 15px;
+    }
+
+    #newCeatePage .chapter_box .chapter_name {
+        width: 100%;
+        height: 50px;
+    }
+
+    #newCeatePage .chapter_box .chapter_content {
+        width: 100%;
+        height: 150px;
+    }
+
+    #newCeatePage .chapter_box .chapter_content textarea {
+        width: 345px;
+        height: 147px;
+    }
+
+    #newCeatePage .chapter_box .del_chapter {
+        margin-left: 325px;
+        border: 2px solid #ffffff;
+        color: firebrick;
+        cursor: pointer;
+        margin-top: 5px;
+        display: block;
+        width: 80px;
+        -webkit-user-select: none;
+    }
+
+    #newCeatePage #config_box {
+        height: 235px;
+        margin-bottom: 15px;
+    }
+
+    #newCeatePage #config_box>div {
+        width: 100%;
+        height: 50px;
+    }
+
+    #newCeatePage #config_box>span {
+        margin-left: 325px;
+        border: 2px solid #ffffff;
+        color: firebrick;
+        cursor: pointer;
+        margin-top: 5px;
+        display: block;
+        width: 65px;
+        -webkit-user-select: none;
+    }
+
+    #newCeatePage .channel_pageName #channel_name,
+    #newCeatePage .channel_pageName #pageName_name {
+        width: 125px;
+        height: 30px;
+        padding-left: 10px;
+        box-sizing: border-box;
+    }
+
+     #newCeatePage #logos{
+        height: 100px;
+    }
+    #newCeatePage .select_logo{
+        color: #fff;
+    }
+
+    #newCeatePage .android_logo,
+    #newCeatePage .ios_logo{
+        height: 50px;
+    }
+</style>
+
+<body>
+    <header>
+        <a href="/newPage/newPage"><img src="../pub/images/back.png" alt=""></a>
+    </header>
+    <form id="newCeatePage" method="post" enctype="multipart/form-data">
+        <div class="modle_num">
+            <p>模板id：</p>
+            <div>
+                <input type="text" name="modle_num" disabled>
+            </div>
+        </div>
+        <div class="channel_pageName">
+            <p>渠道及包名：</p>
+            <select name="channel_name" id="channel_name">
+                <!-- <option></option> -->
+            </select>
+            <select name="pageName_name" id="pageName_name">
+                <!-- <option></option> -->
+            </select>
+            <span class="tips"></span>
+        </div>
+        <div class="pageNum">
+            <p>落地页编号：</p>
+            <div>
+                <input type="text" name="pageNum" autocomplete="off" required min="0">
+                <span class="tisi"></span>
+            </div>
+        </div>
+        <div class="select_logo">
+            <p>请选择logo</p>
+            <input type="radio" name="logos" value="1">统一的logo
+            <input type="radio" name="logos" value="2">区分logo
+        </div>
+        <div id="logos">
+
+        </div>
+        <div class="book_name">
+            <p>小说名：</p>
+            <div>
+                <input type="text" name="book_name" autocomplete="off" required>
+            </div>
+        </div>
+        <div class="book_introduce">
+            <p>小说简介：</p>
+            <div>
+                <textarea name="book_introduce"></textarea>
+            </div>
+        </div>
+        <div class="app_name">
+            <p>app的名字：</p>
+            <div>
+                <input type="text" name="app_name" autocomplete="off" required>
+            </div>
+        </div>
+        <div class="app_downNum">
+            <p>app下载人数：</p>
+            <div>
+                <input type="number" name="app_downNum" autocomplete="off" required min="0">
+            </div>
+        </div>
+        <div class="book_imgs">
+            <p>小说封面：</p>
+            <div>
+                <input type="file" name="book_imgs" autocomplete="off" required>
+            </div>
+        </div>
+        <div class="chapter_box">
+            <div class="chapter_name">
+                <p>示范章节名：</p>
+                <div>
+                    <input type="text" name="chapter_name" autocomplete="off" required min="0">
+                </div>
+            </div>
+            <div class="chapter_content">
+                <p>示范章节内容：</p>
+                <div>
+                    <textarea name="chapter_content"></textarea>
+                </div>
+            </div>
+        </div>
+        <button class="add_chapter">添加章节</button>
+        <div class="book_info">
+            <p>小说标签(最多三个喔)：</p>
+            <div>
+                <input type="text" name="book_info" autocomplete="off" required>
+            </div>
+        </div>
+
+        <div class="app_down">
+            <p>app下载说明：</p>
+            <div>
+                <input type="text" name="app_down" autocomplete="off" required>
+            </div>
+        </div>
+        <div id="config_box">
+            <div class="android_downLink">
+                <p>安卓监控链接：</p>
+                <div>
+                    <input type="text" name="android_downLink" autocomplete="off" required>
+                </div>
+            </div>
+            <div class="ios_downLink">
+                <p>ios监控链接：</p>
+                <div>
+                    <input type="text" name="ios_downLink" autocomplete="off" required>
+                </div>
+            </div>
+            <div class="app_hostname">
+                <p>推广域名：</p>
+                <div>
+                    <input type="text" name="app_hostname" autocomplete="off" required>
+                </div>
+            </div>
+            <div class="app_copyright">
+                <p>推广域名版权：</p>
+                <div>
+                    <input type="text" name="app_copyright" autocomplete="off" required>
+                </div>
+            </div>
+        </div>
+        <button class="add_config">添加配置</button>
+        <div>
+            <input type="submit" value="生成落地页" id="submit_Btn">
+            <input type="reset" value="重置">
+        </div>
+
+    </form>
+</body>
+<script src="../pub/javascripts/jquery.min.js"></script>
+<script>
+    window.onload = function () {
+        let channel_html = '<option selected>--请选择渠道--</option>';
+        let pageName_html = '<option selected>--请选择包名--</option>';
+        var pageNum = $('.pageNum div input');
+        //拿到渠道
+        $.ajax({
+            type: 'get',
+            url: '/newPageName/getChannel',
+            success: data => {
+                console.log(data);
+                let dataArr = data;
+                dataArr.map((item, index) => {
+                    channel_html += `
+                        <option value="${index+1}">${item}</option>
+                    `;
+                })
+                $('#channel_name').html(channel_html);
+            }
+        });
+        //根据渠道获取包名
+        $('#channel_name').change(() => {
+            channel_html = '<option selected>--请选择渠道--</option>';
+            pageName_html = '<option selected>--请选择包名--</option>';
+            let select_text = $('#channel_name').find('option:selected').text();
+            console.log(select_text);
+            if (select_text != '--请选择渠道--' && select_text != '暂无渠道') {
+                $.ajax({
+                    type: 'get',
+                    url: '/newChannel/selectObj',
+                    data: {
+                        'select_text': select_text
+                    },
+                    success: data => {
+                        console.log(data);
+                        if (data.length == 0) {
+                            pageName_html += `<option value = "1">暂无包名</option>`;
+                        } else {
+                            data.map((item, index) => {
+                                pageName_html += `
+                                <option value="${index+1}">${item}</option>
+                                `
+                            })
+                        }
+                        $('#pageName_name').html(pageName_html);
+                    }
+                });
+                $('.tips').text('');
+                pageNum.removeAttr("disabled");
+                $('.tisi').text('');
+            } else {
+                $('.tips').text('请选择正确的渠道或去创建！！！');
+                $('.tips').css('color', 'red');
+                pageNum.attr('disabled', 'disabled');
+                pageNum.val('');
+                $('.tisi').text('不输入正确的渠道和包名,不可使用');
+                $('.tisi').css('color', 'red');
+            }
+        });
+
+        //判断包名是否正确
+        $('#pageName_name').change(() => {
+            let appName = $('#pageName_name').find('option:selected').text();
+            if (appName != '--请选择包名--' && appName != '暂无包名') {
+                $('.tips').text('');
+                pageNum.removeAttr("disabled");
+                $('.tisi').text('');
+            } else {
+                $('.tips').text('请选择正确的包名或去创建！！！');
+                $('.tips').css('color', 'red');
+                pageNum.attr('disabled', 'disabled');
+                pageNum.val('');
+                $('.tisi').text('不输入正确的渠道和包名,不可使用');
+                $('.tisi').css('color', 'red');
+            }
+        })
+        //获取模板号
+        var str = window.location.search;
+        var strArr = str.split('=');
+        $('.modle_num div input').val(strArr[1]);
+        
+
+        //添加章节
+        var cahpterHtml = `
+        <div class="chapter_box">
+            <div class="chapter_name">
+                <p>示范章节名：</p>
+                <div>
+                    <input type="text" name="chapter_name" autocomplete="off" required min="0">
+                </div> 
+            </div>
+            <div class="chapter_content">
+                <p>示范章节内容：</p>
+                <div>
+                    <textarea name="chapter_content"></textarea>
+                </div>
+            </div>
+            <span class="del_chapter">删除该章节</span>
+        </div>
+        `;
+        $('.add_chapter').click(() => {
+            $('.add_chapter').before(cahpterHtml);
+        });
+
+        //添加配置
+        var configHtml = `
+        <div id="config_box">
+            <div class="android_downLink">
+                <p>安卓监控链接：</p>
+                <div>
+                    <input type="text" name="android_downLink" autocomplete="off" required>
+                </div>
+            </div>
+            <div class="ios_downLink">
+                <p>ios监控链接：</p>
+                <div>
+                    <input type="text" name="ios_downLink" autocomplete="off" required>
+                </div>
+            </div>
+            <div class="app_hostname">
+                <p>推广域名：</p>
+                <div>
+                    <input type="text" name="app_hostname" autocomplete="off" required>
+                </div>
+            </div>
+            <div class="app_copyright">
+                <p>推广域名版权：</p>
+                <div>
+                    <input type="text" name="app_copyright" autocomplete="off" required>
+                </div>
+            </div>
+            <span class="del_config">删除配置</span>
+        </div>
+        `;
+        $('.add_config').click(() => {
+            $('.add_config').before(configHtml);
+        });
+
+        //显示logo
+        $('input[name="logos"]').click((ev) => {
+            let logoVal = ev.currentTarget.defaultValue;
+            if (logoVal == '1') {
+                let logoHtml = `
+                <div class="app_logo">
+                    <p>app的logo：</p>
+                    <div>
+                        <input type="file" name="app_logo" autocomplete="off">
+                    </div>
+                </div>
+                `;
+                $('#logos').html(logoHtml);
+            } else if (logoVal == '2') {
+                let logoHtml = `
+                <div class="android_logo">
+                    <p>安卓的logo：</p>
+                    <div>
+                        <input type="file" name="android_logo" autocomplete="off">
+                    </div>
+                </div>
+                <div class="ios_logo">
+                    <p>ios的logo：</p>
+                    <div>
+                        <input type="file" name="ios_logo" autocomplete="off">
+                    </div>
+                </div>
+                `;
+                $('#logos').html(logoHtml);
+            }
+        })
+
+        //获取模板号
+        var str = location.search;
+        var strArr = str.split('=');
+        $('.modle_num div input').val(strArr[1]);
+
+        //拿到落地页号生成action
+        pageNum.blur(() => {
+            var formName = $('form');
+            let channelName = $('#channel_name').find('option:selected').text();
+            let appName = $('#pageName_name').find('option:selected').text();
+            console.log(channelName, appName);
+            if (channelName != '--请选择渠道--' && appName != '--请选择包名--' && appName != '暂无包名') {
+                var url = "/modles/modles2?id=" + strArr[1] + "&pageNum=" + pageNum
+                    .val() +
+                    "&channelName=" + channelName + "&appName=" + appName;
+                formName.attr('action', url);
+            } else {
+                $('.tips').text('请选择正确的渠道与包名！！！');
+                $('.tips').css('color', 'red');
+            }
+
+            //判断用户输入的落地页号是否存在
+            if (pageNum.val() != "") {
+                $.ajax({
+                    type: 'get',
+                    url: '/historyDirectory/isDirectory',
+                    data: {
+                        channelName: channelName,
+                        appName: appName,
+                        pageNum: pageNum.val()
+                    },
+                    success: function (data) {
+                        // console.log(data);
+                        if (data == 'yes') {
+                            $('.tisi').text('该落地页已经存在咯,要修改前往历史落地页');
+                            $('.tisi').css('color', 'red');
+                        } else if (data == 'no') {
+                            $('.tisi').text('可以使用');
+                            $('.tisi').css('color', 'green');
+                        }
+                    }
+                });
+            } else {
+                $('.tisi').text('');
+            }
+        });
+
+
+        //删除章节
+        $('#newCeatePage').on('click', '.del_chapter', function () {
+            $(this).parent().remove();
+            event.stopPropagation();
+        });
+        //删除配置
+        $('#newCeatePage').on('click', '.del_config', function () {
+            $(this).parent().remove();
+            event.stopPropagation();
+        });
+
+    }
+</script>
+
+</html>

@@ -1,0 +1,1011 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui, viewport-fit=cover">
+  <title>疯狂阅读</title>
+  <style>
+    html,
+    body,
+    div,
+    span,
+    applet,
+    object,
+    iframe,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p,
+    blockquote,
+    pre,
+    a,
+    abbr,
+    acronym,
+    address,
+    big,
+    cite,
+    code,
+    del,
+    dfn,
+    em,
+    ins,
+    kbd,
+    q,
+    s,
+    samp,
+    small,
+    strike,
+    strong,
+    sub,
+    sup,
+    tt,
+    var,
+    b,
+    u,
+    i,
+    center,
+    dl,
+    dt,
+    dd,
+    ol,
+    ul,
+    li,
+    fieldset,
+    form,
+    label,
+    legend,
+    table,
+    caption,
+    tbody,
+    tfoot,
+    thead,
+    tr,
+    th,
+    td,
+    article,
+    aside,
+    canvas,
+    details,
+    embed,
+    figure,
+    figcaption,
+    footer,
+    header,
+    menu,
+    nav,
+    output,
+    ruby,
+    section,
+    summary,
+    time,
+    mark,
+    audio,
+    video,
+    input {
+      margin: 0;
+      padding: 0;
+      border: 0;
+    }
+
+    /* HTML5 display-role reset for older browsers */
+
+    article,
+    aside,
+    details,
+    figcaption,
+    figure,
+    footer,
+    header,
+    menu,
+    nav,
+    section {
+      display: block;
+    }
+
+    blockquote,
+    q {
+      quotes: none;
+    }
+
+    blockquote:before,
+    blockquote:after,
+    q:before,
+    q:after {
+      content: none;
+    }
+
+    table {
+      border-collapse: collapse;
+      border-spacing: 0;
+    }
+
+    /* custom */
+
+    a {
+      color: #333;
+      text-decoration: none;
+    }
+
+    li {
+      list-style: none;
+    }
+
+    img {
+      -webkit-touch-callout: none;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      border: none
+    }
+
+    html,
+    body {
+      color: #333;
+      max-width: 750PX;
+      margin: 0 auto;
+    }
+
+    body {
+      -webkit-text-size-adjust: none;
+      -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+      overflow-x: hidden;
+      line-height: 1.1;
+      font-size: 0;
+      background: #fff;
+    }
+
+    a,
+    html,
+    button,
+    input,
+    textarea {
+      font-family: 'PingFang SC', 'Microsoft YaHei', 'STHeitiSC-Light', 'Helvetica', 'Helvetica-Light', arial, sans-serif
+    }
+
+    button {
+      outline: none;
+      border: 0 none;
+      margin: 0;
+      padding: 0;
+      line-height: 1;
+    }
+
+    /* 去除iPhone中默认的input样式 */
+
+    input[type="submit"],
+    input[type="reset"],
+    input[type="button"],
+    input,
+    textarea {
+      -webkit-appearance: none;
+      resize: none;
+      outline: none;
+    }
+
+    input[type="checkbox"] {
+      width: 0;
+      height: 0;
+    }
+
+    /* 取消链接高亮  */
+
+    body,
+    div,
+    ul,
+    li,
+    ol,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    input,
+    textarea,
+    select,
+    p,
+    dl,
+    dt,
+    dd,
+    a,
+    button,
+    form,
+    table,
+    th,
+    tr,
+    td,
+    tbody,
+    article,
+    aside,
+    details,
+    figcaption,
+    figure,
+    footer,
+    header,
+    hgroup,
+    menu,
+    nav,
+    section {
+      -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    }
+
+    /* ======================= */
+    body {
+      margin: 0 auto;
+      width: 7.5rem !important;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: .28rem;
+      background: #fff;
+    }
+
+    .app {
+      width: 7.5rem;
+      margin: auto;
+      padding-bottom: .3rem;
+    }
+
+    .top {
+      position: fixed;
+      top: 0;
+      display: table;
+      margin: 0 auto;
+      width: 7.5rem;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 3;
+    }
+
+    .top_logo,
+    .top_name,
+    .top_imgs {
+      display: table-cell;
+      height: 1.2rem;
+      vertical-align: middle;
+    }
+
+    .top_logo {
+      width: 1rem;
+      text-align: right;
+    }
+
+    .top_logo img {
+      border-radius: .15rem;
+      width: .8rem;
+      height: .8rem;
+    }
+
+    .top_name {
+      padding: 0 .17rem;
+      line-height: .26rem;
+      font-size: .18rem;
+      font-weight: 300;
+      color: #fff;
+    }
+
+    .top_name p:first-child {
+      line-height: .5rem;
+      font-size: .34rem;
+      font-weight: bold;
+    }
+
+    .top_imgs {
+      width: 1rem;
+    }
+
+    .top_imgs img {
+      margin-right: .2rem;
+      width: 1.73rem;
+    }
+
+    .info_banner {
+      width: 7.5rem;
+      height: 3.7rem;
+      background: url('imgs/ia_10015.jpg')0 0 / 100% 7rem no-repeat;
+      position: relative;
+      background-size: 100%;
+    }
+
+    .info_banner img {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: -.9rem;
+      width: 1.8rem;
+      height: 1.8rem;
+      border-radius: .6rem;
+      box-shadow: 0 0 0.2rem 0 rgba(255, 212, 212, 1);
+      z-index: 1;
+    }
+
+    .info_detail {
+      width: 100%;
+      background: #fff;
+      text-align: center;
+      padding: .9rem 0 0.3rem;
+      border-bottom: 1px solid #E4E4E4;
+    }
+
+    .info_name {
+      margin-top: .2rem;
+      font-size: .48rem;
+      color: #000;
+      font-weight: bold;
+    }
+
+    .topStarArr {
+      margin-top: .07rem;
+      color: #B1B1B1;
+    }
+
+    .topStarArr img {
+      width: 12px;
+    }
+
+    .topStarArr span {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: .28rem;
+    }
+
+    .download_btn {
+      display: block;
+      margin: 0.15rem auto 0;
+      text-align: center;
+      color: #fff;
+      width: 5rem;
+      height: .83rem;
+    }
+
+    .info_num {
+      margin-top: .07rem;
+      color: #B1B1B1;
+    }
+
+    .red {
+      font-style: normal;
+      color: #cc8181;
+    }
+
+    .detail {
+      margin-top: .07rem;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: .28rem;
+      color: #B1B1B1;
+    }
+
+    .app_imgs {
+      margin-top: .34rem;
+    }
+
+    .screens-narrow {
+      height: 5.4rem;
+    }
+
+    .screens {
+      width: 100%;
+      overflow-x: scroll;
+      overflow-y: hidden;
+    }
+
+    .screens,
+    .app_table {
+      background-color: #fff;
+    }
+
+    .screen-wrap {
+      width: 13.5rem !important;
+      height: 100%;
+    }
+
+    .screens .img-item {
+      float: left;
+      margin-left: .2rem;
+    }
+
+    .screens img {
+      height: 5.4rem;
+      float: left;
+    }
+
+    .app_table {
+      margin-top: .2rem;
+    }
+
+    .download_btn img {
+      width: 100%;
+    }
+
+    .lib_Menubox {
+      height: 1rem;
+      position: relative;
+      border-bottom: 2px solid #e0e0e0;
+      margin-bottom: 0.3rem;
+      font-size: 0.36rem;
+    }
+
+    .lib_Menubox ul {
+      height: 1rem;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+    }
+
+    .lib_Menubox li.hover {
+      color: #fb403f;
+      border-bottom: 2px solid #cc1312;
+    }
+
+    .lib_Menubox li {
+      float: left;
+      display: block;
+      cursor: pointer;
+      width: 50%;
+      height: 1rem;
+      line-height: 1rem;
+      color: #909090;
+    }
+
+    .content {
+      color: #605c5c;
+      padding: 0 .4rem;
+    }
+
+    .abstract {
+      line-height: .5rem;
+    }
+
+    .comment li {
+      position: relative;
+      background-color: #fefefe;
+      color: #595959;
+      margin-bottom: 0.3rem;
+      border-bottom: 1px solid #f3f3f3;
+      padding: 0.4rem 0;
+    }
+
+    .pic {
+      position: absolute;
+      top: .26rem;
+      left: 0;
+      width: .8rem;
+      border-radius: 1.2rem;
+    }
+
+    .pic-name {
+      margin-left: .9rem;
+    }
+
+    .pic-name span {
+      float: left;
+      width: 100%;
+    }
+
+    .pic-name .star {
+      float: left;
+    }
+
+    .pic-name .star img {
+      width: .24rem;
+    }
+
+    .pic-name .time {
+      float: right;
+      margin-top: -.34rem;
+      color: #b9b9b9;
+    }
+
+    ul.comment>li>p {
+      margin-top: .14rem;
+      line-height: .45rem;
+    }
+
+    .copyright {
+      margin-top: .2rem;
+      width: 100%;
+      text-align: center;
+      font-size: .26rem;
+      color: #777;
+    }
+
+    .clearfix:after {
+      content: '.';
+      display: block;
+      height: 0;
+      clear: both;
+      font-size: 0;
+    }
+
+    .toasted-container {
+      position: fixed;
+      top: 20%;
+      left: 50%;
+      z-index: 100;
+      -webkit-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+      transform: translateX(-50%);
+      -ms-touch-action: pan-y;
+      touch-action: pan-y;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      -webkit-user-drag: none;
+      -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+      opacity: 1;
+      width: auto;
+      clear: both;
+      max-width: 100%;
+      height: auto;
+      word-break: normal;
+      display: -ms-flexbox;
+      display: -webkit-box;
+      display: flex;
+      -ms-flex-align: center;
+      -webkit-box-align: center;
+      align-items: center;
+      -ms-flex-pack: justify;
+      -webkit-box-pack: justify;
+      justify-content: space-between;
+      -webkit-box-sizing: inherit;
+      box-sizing: inherit;
+      border-radius: 2px;
+      min-height: 38px;
+      line-height: 1.1em;
+      background-color: rgba(53, 53, 53, .9);
+      padding: 0 20px;
+      font-size: 15px;
+      font-weight: 300;
+      color: #fff;
+      -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, .12), 0 1px 2px rgba(0, 0, 0, .24);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, .12), 0 1px 2px rgba(0, 0, 0, .24);
+      display: none;
+    }
+
+    .loader {
+      width: 30px;
+      height: 30px;
+      position: relative;
+    }
+
+    .ball-scale-multiple {
+
+      width: 30px;
+      height: 30px;
+    }
+
+    .ball-beat>div,
+    .ball-scale-multiple>div {
+      background-color: #fff;
+      border-radius: 100%;
+    }
+
+    .ball-scale-multiple>div {
+      position: absolute;
+      opacity: 0;
+      margin: 0;
+      width: 30px;
+      height: 30px;
+      -webkit-animation: ball-scale-multiple 1s 0s linear infinite;
+      animation: ball-scale-multiple 1s 0s linear infinite;
+    }
+
+    .ball-scale-multiple>div:nth-child(2) {
+      -webkit-animation-delay: -.4s;
+      animation-delay: -.4s;
+    }
+
+    .ball-scale-multiple>div:nth-child(3) {
+      -webkit-animation-delay: -.2s;
+      animation-delay: -.2s;
+    }
+
+    @-webkit-keyframes ball-scale-multiple {
+      0% {
+        -webkit-transform: scale(0);
+        transform: scale(0);
+        opacity: 0;
+      }
+
+      5% {
+        opacity: 1;
+      }
+
+      100% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+        opacity: 0;
+      }
+    }
+
+    @keyframes ball-scale-multiple {
+      0% {
+        -webkit-transform: scale(0);
+        transform: scale(0);
+        opacity: 0;
+      }
+
+      5% {
+        opacity: 1;
+      }
+
+      100% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+        opacity: 0;
+      }
+    }
+
+    @-webkit-keyframes fadeInDown {
+      0% {
+        opacity: 0;
+        -webkit-transform: translate3d(-50%, -100%, 0);
+        transform: translate3d(-50%, -100%, 0)
+      }
+
+      to {
+        opacity: 1;
+        -webkit-transform: translate3d(-50%, 0, 0);
+        transform: translate3d(-50%, 0, 0)
+      }
+    }
+
+    @keyframes fadeInDown {
+      0% {
+        opacity: 0;
+        -webkit-transform: translate3d(-50%, -100%, 0);
+        transform: translate3d(-50%, -100%, 0)
+      }
+
+      to {
+        opacity: 1;
+        -webkit-transform: translate3d(-50%, 0, 0);
+        transform: translate3d(-50%, 0, 0)
+      }
+    }
+
+    .fadeInDown {
+      -webkit-animation-name: fadeInDown;
+      animation-name: fadeInDown;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+    }
+
+    .animated {
+      -webkit-animation-duration: .5s;
+      animation-duration: .5s;
+      -webkit-animation-fill-mode: both;
+      animation-fill-mode: both
+    }
+
+    .weixin-tip {
+      background: rgba(0, 0, 0, .8);
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      z-index: 1000;
+      display: none;
+    }
+
+    .weixin-tip img {
+      width: 100%;
+    }
+  </style>
+  <script>
+    function rem() {
+      var html = document.documentElement
+      var width = html.clientWidth
+      if (width >= 750) {
+        width = 750
+      }
+      html.style.fontSize = 100 * (width / 750) + "px"
+    }
+    rem()
+    window.addEventListener('resize', () => rem())
+  </script>
+</head>
+
+<body>
+  <div class="app">
+    <div class="top" onclick="download()">
+      <div class="top_logo">
+        <img alt>
+      </div>
+      <div class="top_name">
+        <p>疯狂阅读</p>
+        <p><strong>297.9</strong>万人已下载</p>
+      </div>
+      <div class="top_imgs">
+        <div>
+          <img src="imgs/ia_10014.png" alt="免费下载">
+        </div>
+      </div>
+    </div>
+    <div class="app_info">
+      <div class="info_banner">
+        <img alt="" onclick="download()">
+      </div>
+      <img src="./imgs/logo.1.png" alt="" style="position: absolute;top: 55px;left: 5px;width: 55px;">
+      <div class="info_detail" onclick="download()">
+        <div class="info_name">疯狂阅读</div>
+        <div class="topStarArr">
+          <img align="absmiddle" src="imgs/ia_10012.png">
+          <img align="absmiddle" src="imgs/ia_10012.png">
+          <img align="absmiddle" src="imgs/ia_10012.png">
+          <img align="absmiddle" src="imgs/ia_10012.png">
+          <img align="absmiddle" src="imgs/ia_10012.png">
+          <span>4.8分</span>
+        </div>
+        <div class="info_num">
+          版本：1.7.1<i class="red">免费版</i>
+        </div>
+        <div class="detail">
+          <span class="size"></span> | 4,506万下载
+        </div>
+        <div class="download_btn"><img src="imgs/ia_10001.gif" alt="点击免费阅读"></div>
+      </div>
+    </div>
+    <div class="app_imgs">
+      <div class="screens screens-narrow">
+        <div class="screen-wrap">
+          <div class="img-item common">
+            <img src="imgs/ia_10002.jpg" class="imgs1">
+          </div>
+          <div class="img-item common">
+            <img src="imgs/ia_10003.jpg" class="imgs2">
+          </div>
+          <div class="img-item common">
+            <img src="imgs/ia_10004.jpg" class="imgs3">
+          </div>
+          <div class="img-item common">
+            <img src="imgs/ia_10005.jpg" class="imgs4">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="app_table">
+      <div class="lib_Menubox">
+        <ul>
+          <li class="hover">详情</li>
+          <li class="">评论（8.9万+）</li>
+        </ul>
+      </div>
+      <div class="tab">
+        <div class="content">
+          <div class="abstract">
+            【<label
+              class="title1">疯狂阅读</label>】不花钱看全网热门小说,书虫必备小说追书神器，功能体验全面升级，全网小说任你搜。一键缓存到本地，让你随时随地自由畅读。千万书友正在使用，还不快来下载!<br><br>
+            【热门小说】全网热门小说《豪婿(韩三千)》《我不想继承万亿家产(陈平江婉)(又名：我怎么这么有钱)》《秦木兮纪寒卿》《元尊》《圣墟》《魔道祖师》《斗罗大陆》《大主宰》《斗破苍穹》《都市仙尊》《九棺》《武动乾坤》等书籍全部免费看！下载<label
+              class="title1">疯狂阅读</label>，开启免费小说之旅，从此看小说不花钱！<br><br>
+            【在线阅读】无需找寻并下载TXT小说文档，更无需手机连接电脑转移文档，网络资源随意选择。<br><br>
+            【下载阅读】选择任意书籍，可分章节或全部章节下载，轻巧快捷，多种选择！<br><br>
+            【强大搜索】强大搜索功能、按作者、按书名、总能找到您想要的！<br><br>
+            【免费换源】全网20多个书源免费随便切换！<br><br>
+            【免费听书】全部小说可以免费切换听书模式，释放双手，自在聆听！<br><br>
+            【预读功能】自动缓存，节省时间，阅读畅快！
+          </div>
+        </div>
+        <div class="content" style="display: none;">
+          <ul class="comment">
+            <li>
+              <img src="imgs/ia_10006.jpg" class="pic">
+              <div class="pic-name clearfix">
+                <span>我叫小美</span>
+                <div class="star">
+                  <img src="imgs/ia_10012.png">
+                  <img src="imgs/ia_10012.png">
+                  <img src="imgs/ia_10012.png">
+                  <img src="imgs/ia_10012.png">
+                  <img src="imgs/ia_10012.png">
+                </div>
+                <div class="time">2019-10-18 17:08</div>
+              </div>
+              <p>真的全部免费呢，好多热门书籍都能看，超爱这个软件啊，由衷感谢制作团队啦！么么哒</p>
+            </li>
+            <li>
+              <img src="imgs/ia_10007.jpg" class="pic">
+              <div class="pic-name clearfix">
+                <span>海棠花</span>
+                <div class="star">
+                  <img src="imgs/ia_10012.png">
+                  <img src="imgs/ia_10012.png">
+                  <img src="imgs/ia_10012.png">
+                  <img src="imgs/ia_10012.png">
+                  <img src="imgs/ia_10012.png">
+                </div>
+                <div class="time">2019-10-11 10:50</div>
+              </div>
+              <p>用了一段时间爱不释手看小说不花钱，看小说真的不用花钱，宅女福音啊 这么好的小说阅读器一定得分享给闺蜜一起看 希望疯狂阅读越来越好 我会一直支持你们的 加油啊！</p>
+            </li>
+            <li>
+              <img src="imgs/ia_10008.jpg" class="pic">
+              <div class="pic-name clearfix">
+                <span>酣饮尽兴</span>
+
+                <div class="star">
+                  <img src="imgs/ia_10012.png">
+                  <img src="imgs/ia_10012.png">
+                  <img src="imgs/ia_10012.png">
+                  <img src="imgs/ia_10012.png">
+                  <img src="imgs/ia_10012.png">
+                </div>
+                <div class="time">2019-09-25 08:23</div>
+              </div>
+              <p>迄今为止用过最好的免费小说阅读器,基本都能找到需要看的书，关键是免费啊！当下的良心读书软件啊！</p>
+            </li>
+            <li>
+              <img src="imgs/ia_10009.jpg" class="pic">
+              <div class="pic-name clearfix">
+                <span>半顆糖、也甜入心</span>
+                <div class="star">
+                  <img src="imgs/ia_10012.png">
+                  <img src="imgs/ia_10012.png">
+                  <img src="imgs/ia_10012.png">
+                  <img src="imgs/ia_10012.png">
+                  <img src="imgs/ia_10012.png">
+                </div>
+                <div class="time">2019-09-18 16:53</div>
+              </div>
+              <p>这是我最爱的一款小说神器，我很爱看小说，但因为长时间看手机，视力越来越不好，那么听小说又成了我闲暇之余打发时间的最好消遣。走路，做家务时打开手机听着自己喜欢的小说，多么惬意。<label
+                  class="title1">看小说不花钱</label>不但能看还能听，看和听随时转换，小说量大又全，最最主要的是它是免费的！喜欢你，支持你，希望你可以一直走下去，我会追随你直到永远！
+              </p>
+            </li>
+            <li>
+              <img src="imgs/ia_10010.jpg" class="pic">
+              <div class="pic-name clearfix">
+                <span>心城以北</span>
+                <div class="star">
+                  <img src="imgs/ia_10012.png">
+                  <img src="imgs/ia_10012.png">
+                  <img src="imgs/ia_10012.png">
+                  <img src="imgs/ia_10012.png">
+                  <img src="imgs/ia_10012.png">
+                </div>
+                <div class="time">2019-09-11 18:58</div>
+              </div>
+              <p>真心不错的软件，对苹果用户来说真的解决了很多小说来源渠道的问题，因为不能一直用浏览器看小说很不方便，而这款软件正好解决了这个问题，最主要的是所有的小说都是免费的，不需要花一分钱！！
+              </p>
+            </li>
+            <li>
+              <img src="imgs/ia_10011.jpg" class="pic">
+              <div class="pic-name clearfix">
+                <span>青、灯、行</span>
+                <div class="star">
+                  <img src="imgs/ia_10012.png">
+                  <img src="imgs/ia_10012.png">
+                  <img src="imgs/ia_10012.png">
+                  <img src="imgs/ia_10012.png">
+                  <img src="imgs/ia_10012.png">
+                </div>
+                <div class="time">2019-09-09 17:44</div>
+              </div>
+              <p>关键是免费，小说里错别字少，不错！</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <p class="copyright"></p>
+  </div>
+  <div class="toasted-container">
+    <div class="loader">
+      <div class="ball-scale-multiple">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+    下载中 !!
+  </div>
+  <div class="weixin-tip">
+    <img src="imgs/weixin-tip.png" alt="" srcset="">
+  </div>
+</body>
+<script>
+  var appInfo = {
+    androidSize: "10.5M",
+    iosSize: "66M",
+    "xs.ztcmkj.cn": {
+      iosDownload: "https://at.umtrack.com/fuGzGv?cid=5484&keywordid={keywordid}&creative={creative}",
+      androidDownload: "https://at.umtrack.com/59ze4r?cid=5484&keywordid={keywordid}&creative={creative}",
+      copyright: "安徽正同传媒科技有限责任公司",
+    },
+    default: {
+      iosDownload: "https://at.umtrack.com/fuGzGv?cid=5484&keywordid={keywordid}&creative={creative}",
+      androidDownload: "https://at.umtrack.com/59ze4r?cid=5484&keywordid={keywordid}&creative={creative}",
+      copyright: "安徽正同传媒科技有限责任公司",
+    }
+  }
+  var appInfoHost = appInfo[window.location.host] || appInfo.default
+
+  if (/(iPhone|iPad|iPod|iOS)/i.test(navigator.userAgent)) {
+    document.querySelector(".top_logo img").src = "imgs/fkyd_1.png"
+    document.querySelector(".info_banner img").src = "imgs/fkyd_1.png"
+
+  } else {
+    document.querySelector(".top_logo img").src = "imgs/fkyd_2.png"
+    document.querySelector(".info_banner img").src = "imgs/fkyd_2.png"
+  }
+
+  function getQueryString(name) {
+    var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+    var r = window.location.search.substr(1).match(reg);
+    if (r != null) {
+      return r[2];
+    }
+    return null;
+  }
+  var kwid = getQueryString('keywordid');
+  var ca = getQueryString('creative');
+
+  //详情评论切换
+  var li_list = document.querySelectorAll('.lib_Menubox ul li');
+  var div_list = document.querySelectorAll('.tab .content');
+  for (let i = 0; i < li_list.length; i++) {
+    li_list[i].onclick = function () {
+      for (var k = 0; k < div_list.length; k++) {
+        div_list[k].style.display = "none";
+        li_list[k].className = '';
+      }
+      div_list[i].style.display = "block";
+      this.className = 'hover';
+    }
+  }
+
+  if (/(iPhone|iPad|iPod|iOS)/i.test(navigator.userAgent)) {
+    document.querySelector(".size").innerText = appInfo.iosSize
+  } else {
+    document.querySelector(".size").innerText = appInfo.androidSize
+  }
+
+  document.querySelector(".copyright").innerText = appInfoHost.copyright
+
+  window.download = function () {
+    if (/MicroMessenger/i.test(navigator.userAgent)) {
+      document.querySelector(".weixin-tip").style.display = "block"
+      return
+    }
+    if (/(iPhone|iPad|iPod|iOS)/i.test(navigator.userAgent)) {
+      window.location.href = appInfoHost.iosDownload.replace(/{keywordid}/, kwid).replace(/{creative}/, ca)
+    } else {
+      var downloadIframe = document.createElement("iframe")
+      downloadIframe.id = "download_iframe"
+      downloadIframe.style.display = "none"
+
+      downloadIframe.src = appInfoHost.androidDownload.replace(/{keywordid}/, kwid).replace(/{creative}/, ca)
+
+
+      var toasted = document.querySelector(".toasted-container")
+      var animationend = function (e) {
+        e.target.classList.remove("animated")
+        toasted.removeEventListener("webkitAnimationEnd", animationend)
+        toasted.removeEventListener("animationend", animationend)
+      }
+      toasted.addEventListener("webkitAnimationEnd", animationend)
+      toasted.addEventListener("animationend", animationend)
+      toasted.classList.add("fadeInDown")
+      toasted.classList.add("animated")
+      document.body.appendChild(downloadIframe)
+      setTimeout(function () {
+        toasted.classList.remove("fadeInDown")
+      }, 2000)
+    }
+  }
+
+</script>
+
+</html>

@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui, viewport-fit=cover">
+  <title></title>
+  <style>
+    html,
+    body,
+    div,
+    span,
+    applet,
+    object,
+    iframe,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p,
+    blockquote,
+    pre,
+    a,
+    abbr,
+    acronym,
+    address,
+    big,
+    cite,
+    code,
+    del,
+    dfn,
+    em,
+    ins,
+    kbd,
+    q,
+    s,
+    samp,
+    small,
+    strike,
+    strong,
+    sub,
+    sup,
+    tt,
+    var,
+    b,
+    u,
+    i,
+    center,
+    dl,
+    dt,
+    dd,
+    ol,
+    ul,
+    li,
+    fieldset,
+    form,
+    label,
+    legend,
+    table,
+    caption,
+    tbody,
+    tfoot,
+    thead,
+    tr,
+    th,
+    td,
+    article,
+    aside,
+    canvas,
+    details,
+    embed,
+    figure,
+    figcaption,
+    footer,
+    header,
+    menu,
+    nav,
+    output,
+    ruby,
+    section,
+    summary,
+    time,
+    mark,
+    audio,
+    video,
+    input {
+      margin: 0;
+      padding: 0;
+      border: 0;
+    }
+
+    /* HTML5 display-role reset for older browsers */
+
+    article,
+    aside,
+    details,
+    figcaption,
+    figure,
+    footer,
+    header,
+    menu,
+    nav,
+    section {
+      display: block;
+    }
+
+    blockquote,
+    q {
+      quotes: none;
+    }
+
+    blockquote:before,
+    blockquote:after,
+    q:before,
+    q:after {
+      content: none;
+    }
+
+    table {
+      border-collapse: collapse;
+      border-spacing: 0;
+    }
+
+    /* custom */
+
+    a {
+      color: #333;
+      text-decoration: none;
+    }
+
+    li {
+      list-style: none;
+    }
+
+    img {
+      -webkit-touch-callout: none;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      border: none
+    }
+
+    html,
+    body {
+      color: #333;
+      max-width: 750PX;
+      margin: 0 auto;
+    }
+
+    body {
+      -webkit-text-size-adjust: none;
+      -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+      overflow-x: hidden;
+      line-height: 1.1;
+      font-size: 0;
+      background: #fff;
+    }
+
+    a,
+    html,
+    button,
+    input,
+    textarea {
+      font-family: 'PingFang SC', 'Microsoft YaHei', 'STHeitiSC-Light', 'Helvetica', 'Helvetica-Light', arial, sans-serif
+    }
+
+    button {
+      outline: none;
+      border: 0 none;
+      margin: 0;
+      padding: 0;
+      line-height: 1;
+    }
+
+    /* 去除iPhone中默认的input样式 */
+
+    input[type="submit"],
+    input[type="reset"],
+    input[type="button"],
+    input,
+    textarea {
+      -webkit-appearance: none;
+      resize: none;
+      outline: none;
+    }
+
+    input[type="checkbox"] {
+      width: 0;
+      height: 0;
+    }
+
+    /* 取消链接高亮  */
+
+    body,
+    div,
+    ul,
+    li,
+    ol,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    input,
+    textarea,
+    select,
+    p,
+    dl,
+    dt,
+    dd,
+    a,
+    button,
+    form,
+    table,
+    th,
+    tr,
+    td,
+    tbody,
+    article,
+    aside,
+    details,
+    figcaption,
+    figure,
+    footer,
+    header,
+    hgroup,
+    menu,
+    nav,
+    section {
+      -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    }
+
+    .app {
+      background-color: rgba(218, 53, 28, 0.1);
+    }
+
+    .introduction {
+      padding: .8rem;
+      position: relative;
+    }
+    .introduction h2{
+      font-size: .38rem;
+      text-align: center;
+      line-height: 1.5em;
+      color: rgb(75, 19, 19);
+    }
+
+    .introduction p {
+      color: rgb(113, 59, 59);
+      font-size: .34rem;
+      line-height: 1.5em;
+    }
+
+    .introduction .border_top_left {
+      width: 1.36rem;
+      height: 1.36rem;
+      background: url("imgs/border_top_left.png") left top/100% no-repeat;
+      position: absolute;
+      left: .4rem;
+      top: .4rem;
+    }
+
+    .introduction .border_top_right {
+      width: 4.82rem;
+      height: .02rem;
+      background: #df3327;
+      position: absolute;
+      right: .4rem;
+      top: .4rem;
+    }
+
+    .introduction .border_bottom_left {
+      width: 4.82rem;
+      height: .02rem;
+      background: #df3327;
+      position: absolute;
+      left: .4rem;
+      bottom: .4rem;
+    }
+
+    .introduction .border_bottom_right {
+      width: 1.36rem;
+      height: 1.36rem;
+      background: url("imgs/border_bottom_right.png") right bottom/100% no-repeat;
+      position: absolute;
+      right: .4rem;
+      bottom: .4rem;
+    }
+
+    .app_info {
+      padding: .35rem;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      position: relative;
+    }
+
+    .app_info .logo {
+      width: 1.4rem;
+      height: 1.4rem;
+    }
+
+    .app_info .content {
+      -webkit-box-flex: 1;
+          -ms-flex: 1;
+              flex: 1;
+      margin-left: .28rem;
+    }
+
+    .app_info .content h1 {
+      font-size: .32rem;
+      color: rgb(75, 19, 19);
+      font-weight: normal;
+    }
+
+    .app_info .text {
+      color: rgba(75, 19, 19, 0.6);
+      font-size: .24rem;
+      margin-top: .15rem;
+    }
+
+    .app_info .text .size {
+      margin-right: .36rem;
+    }
+
+    .app_info .tags {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+    }
+
+    .app_info .tags span {
+      -webkit-box-flex: 0;
+          -ms-flex: 0 1 .92rem;
+              flex: 0 1 .92rem;
+      width: .92rem;
+      height: .42rem;
+      text-align: center;
+      font-size: .24rem;
+      color: rgb(135, 25, 25);
+      background: rgba(218, 53, 28, 0.1);
+      border: .03rem solid rgba(135, 25, 25, 0.5);
+      border-radius: .1rem;
+      margin-top: .15rem;
+      margin-right: .1rem;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: center;
+          -ms-flex-pack: center;
+              justify-content: center;
+      -webkit-box-align: center;
+          -ms-flex-align: center;
+              align-items: center;
+    }
+
+    .app_info .right {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: content;
+          -ms-flex-pack: content;
+              justify-content: content;
+      -webkit-box-align: center;
+          -ms-flex-align: center;
+              align-items: center;
+    }
+
+    .app_info .download {
+      width: 1.38rem;
+      height: .54rem;
+      border-radius: .54rem;
+      font-size: .28rem;
+      background: rgb(218, 53, 28);
+      color: #fff;
+    }
+    .banner{
+      width: 100%;
+    }
+    .chapter {
+      padding: .3rem .6rem;
+    }
+    .chapter .title_pic_top{
+      width: 6.12rem;
+      height: .77rem;
+      background: url("imgs/chapter_title_pic_top.png") center/100% no-repeat;
+      margin: 0 auto;
+    }
+    .chapter .title_pic_bottom{
+      width: 6.12rem;
+      height: .77rem;
+      background: url("imgs/chapter_title_pic_bottom.png") center/100% no-repeat;
+      margin: 0 auto;
+    }
+    .chapter .title{
+      text-align: center;
+      font-size: .36rem;
+      color: rgb(103, 21, 21);
+    }
+    .chapter .content{
+      font-size: .32rem;
+      white-space: pre-wrap;
+      line-height: 1.5;
+    }
+    .download_link{
+      color: rgb(218, 53, 28);
+      font-size: .32rem;
+      text-align: center;
+      display: block;
+      line-height: 1.3rem;
+    }
+    .download_button{
+      background: rgb(218, 53, 28);
+      font-size: .32rem;
+      color: #fff;
+      width: 7rem;
+      height: .84rem;
+      margin: 0 auto;
+      display: block;
+      border-radius: .84rem;
+    }
+    .copyright{
+      font-size: .24rem;
+      text-align: center;
+      line-height: .9rem;
+      background: rgb(242, 242, 242);
+      color: rgb(105, 118, 140);
+      margin-top: .2rem;
+    }
+    .copyright p:after, .copyright p:before {
+      content: "\2212";
+      margin: 0 .667em;
+    }
+  </style>
+  <script>
+    function rem() {
+      var html = document.documentElement
+      var width = html.clientWidth
+      if (width >= 750) {
+        width = 750
+      }
+      html.style.fontSize = 100 * (width / 750) + "px"
+    }
+    rem()
+    window.addEventListener('resize', () => rem())
+  </script>
+</head>
+
+<body>
+  <div class="app">
+    <div class="introduction">
+      <h2>《龙王殿》</h2>
+      <p>
+          生而为王，年少父母被杀，他消失数年，成为地下世界的超级王者回归都市，这次回来，看他如何改变天下大势......
+      </p>
+      <div class="border_top_left"></div>
+      <div class="border_top_right"></div>
+      <div class="border_bottom_left"></div>
+      <div class="border_bottom_right"></div>
+    </div>
+    <div class="app_info" onclick="download()" style="position: relative;">
+      <img src="./imgs/logo.1.png" alt="" style="position: absolute;top: 5px;left: 18px;width: 55px;">
+      <img src="imgs/logo.png" alt="" srcset="" class="logo">
+      <div class="content">
+        <h1 class="appName">悦读神器</h1>
+        <div class="text"><span class="size"></span><span>6701人下载</span></div>
+        <div class="tags">
+          <span>免费</span>
+          <span>连载</span>
+          <span>言情</span>
+        </div>
+      </div>
+      <div class="right">
+        <button class="download">免费下载</button>
+      </div>
+    </div>
+    <img class="banner" src="imgs/banner.jpg" alt="">
+
+    <div class="chapter">
+      <div class="title">
+        <div class="title_pic_top"></div>
+        <p>第一章：废婿</p>
+        <div class="title_pic_bottom"></div>
+        <div></div>
+      </div>
+      <div class="content">
+　　“天佑我叶家，基业长青，子嗣不凡，子孙后辈皆是人中龙凤。” 叶家老太君拄着龙头拐杖，一脸欣慰的看着叶家子嗣。
+
+　　今日是叶家掌舵人刘凤至的六十大寿，自从叶家老爷子重病后，叶家老太太便掌控大权，大事务，全都由她决定。
+
+　　今天来贺寿的，也都是银州有头有脸的人物。
+
+　　就在这时，一道长喝响了起来。
+
+　　“叶家叶谭明恭祝老太君福如东海，寿比南山，献玉海一座！”
+
+　　“乾元董事长王福山恭祝老太君长命百岁，送珠宝玉雕一对！”
+
+　　“丰海集团总经理恭祝老太君福寿安康，送镶金匾额一扇！”
+
+　　来往宾客，看着一件件价值不菲的礼物，也都心生羡慕，恐怕这次礼品加起来，总价值会过五百万了吧。
+
+　　但是接下来的一个声音，却让在场宾客有些愣怔，甚至无语。
+
+　　“叶家女婿萧阳，恭祝老太君千秋万代，送生锈铜壶一只！”
+
+　　此话一出，来往的宾客都面面相觑，随即爆发出一阵鄙视的笑声。
+
+　　“这个萧阳就是三年前入赘叶家的那个混子吗？”
+
+　　“就是他，也不知道叶老太爷怎么想的，叶云舒的父亲虽说平庸了一些，可叶云舒也算是叶家千金，却把她许配给了一个无名无姓之辈。”
+
+　　“老太君三年来，从未让他踏入叶家半步，足以证明对其不满，今日是老太君大寿，却送一只破铜烂铁，真是贻笑大方啊。”
+
+　　叶云舒是一个很漂亮的女人，高挑的身材，远山黛眉，天生长了一张高级的脸蛋。
+
+　　可此时，那张脸蛋上却布满了阴霾。
+
+　　她拉着杵在一旁的萧阳来到了角落里。
+
+　　“老......云舒，你怎么了？”萧阳不解的问道。
+
+　　 叶云舒气愤的说道：“还问我怎么了，我给你五万块买的礼物呢？”
+
+　　萧阳无辜的指了指放在大红桌子上的铜壶，“喏，那就是啊。”
+
+　　“五万块，你竟然买了一只破铜烂铁，今天可是奶奶的生日，你怎么可以这样？”
+
+　　 说完这话，叶云舒充满了委屈，三年了，这个废物无所事事，呆在家中当一个家庭煮夫，饭菜烧的倒是不错，可那又有什么用？
+
+　　真正的男人，是要干出一番惊天动地的事业，成就无上的功名利禄的，这才叫男人。
+
+　　可再反观萧阳，始终一副无所谓的样子，让人又气又恨。
+
+　　就拿今天这件事来说，五万块钱，虽然不多，但也够买一件体面一点的礼品了，可他却买了个破铜烂铁，丢人丢到了奶奶的寿宴上。
+
+　　果然不能把这么重要的事情交给萧阳，真是烂泥扶不上墙。
+
+　　若不是顾及叶家的名声，她说不定早就跟这个窝囊废离婚了。
+
+　　“云舒，别看这件铜壶看起来其貌不扬，可却是汉朝流传下来的一件铜器，价值起码五千万。”
+
+　　“呦，五千万？不会是从古玩街淘来的吧。”就在这时，叶谭明一脸戏谑的笑意走了过来。
+
+　　叶谭明是老太君最得宠的孙儿，如果不出什么意外，日后的叶家便是叶谭明掌权。
+
+　　他本人自然也知道这一点，所以向来自视甚高，尤其看不起二伯家这一脉，因为二伯不得宠，早早出去自创家业去了，也只有每逢重大节日才允许到叶家一趟。
+
+　　萧阳淡淡的瞥了他一眼，如实说道：“的确是从古玩街买回来的。”
+
+　　此话一出，惹得在座宾客哄然大笑。
+
+　　“大家谁不知道，古玩一条街卖的八九成是假货，你买个假货也就罢了，起码挑一件像样的吧，你再看看我给奶奶准备的礼物！”
+
+　　叶谭明来到他那一座半人多高的玉海面前，得意之色不言自明。
+
+　　的确，跟他的礼物比起来，萧阳的礼物不值一提。
+
+　　这时，老太君拄着龙头拐杖走了过来，一众亲戚宾客站起，态度恭敬。
+
+　　“奶奶，萧阳不懂事，您不要怪他，等我回去，再给您准备一份像样的礼物。”
+
+　　叶云舒几步上前，先给老太君赔了一个礼，虽说她跟萧阳有名无实，可终究是名义上的丈夫，在亲戚面前，还是要护一下的。
+
+　　老太君看了看那柄铜壶，露出一股厌恶的神色，从鼻孔里淡淡的哼了一声。
+
+　　“算了，你们家也没多少钱，还是留下来好好过日子吧，孙儿，寿宴要开始了，扶我过去。”
+
+　　叶谭明答应了一声，连忙搀扶着老太君，还不忘记回头给叶云舒一个得意的眼神。
+
+　　叶云舒恨恨的咬了一下嘴唇，本想通过这一次的寿宴，给老太君留一个好印象，看来全都泡汤了。
+
+　　她刚要跟过去，只听老太君不咸不淡的的说道：“主桌坐满了，你们就不必上去了。”
+
+　　叶云舒脚步一顿，一股耻辱之感萦绕心中。
+
+　　堂堂叶家千金，却要跟堂下客坐在一起，感受到无数道好奇的眼神投来，叶云舒恨不得抬脚就走。
+
+　　再看看台上主桌，聚光灯下，言笑宴宴，这种差别对待，可见老太君对于自己这一脉，是多么的不待见了。
+
+　　父亲无用也就罢了，可终究是叶家人，但偏偏又有一个上门女婿更是废物，在老太君看来，叶云舒这一脉，彻底无可救药了。
+
+　　“云舒，很羡慕吗？”萧阳笑眯眯的问道。
+
+　　叶云舒不耐烦的说了一句，“羡慕有用吗，那是主位，只有老太君才能坐，我又算的了什么？”
+
+　　“爷爷死后，我们全家就搬了出来，日子过得一天不如一天！”
+
+　　“父亲生意失败，赔光了家产，本想借着这次机会讨好老太君，给父亲某个差事，可现在呢？”
+
+　　“算了，跟你说又有什么用，你又不懂。”
+
+　　叶云舒说着说着，委屈得掉下了眼泪。
+</div>
+</div>
+
+<a class="download_link" href="javascript:download();">
+    >>篇幅有限，立即下载全文阅读
+</a>
+
+<div class="chapter">
+    <div class="title">
+      <div class="title_pic_top"></div>
+      <p>第二章：答应下来</p>
+      <div class="title_pic_bottom"></div>
+      <div></div>
+    </div>
+    <div class="content">
+　　萧阳一怔，我不懂？
+
+　　男儿有志，鸿鹄摇天。
+
+　　他一直以来都没想过参与叶家的事，不是不想，而是不屑。
+
+　　萧阳，堂堂世界第一神秘组织龙王殿的的创始人，人称龙王，座下四大炽天使，十二大六翼天使，掌管着世界半数的权势跟财富。
+
+　　可以说，萧阳一句话，别说叶家，就算是整座滨海各大家族，都会在谈笑间，灰飞烟灭！
+
+　　他不懂？
+
+　　他上门女婿做了三年，只想完成当年的夙愿。
+
+　　可如今已把叶云舒当成自己的妻子。
+
+　　只是每次叶云舒从叶家回来，都会面带欢笑，萧阳本以为在叶家，叶云舒应该有一定的地位才对。
+
+　　但是今日一见，却并非如此。
+
+　　想到这里，萧阳云淡风轻的说道：“云舒，如果你喜欢，我便让你坐上那个位置。”
+
+　　叶云舒诧异的看了一眼萧阳，随即不屑的笑道：“你说什么，就凭你？”
+
+　　“只要你相信我。”萧阳自信的说道。
+
+　　叶云舒第一次见到萧阳这么一本正经的说一件事，恍惚间，她还真的有点相信了。
+
+　　“呵，别开玩笑了，主位岂是我能觊觎的，我只求老太君对父亲这一脉稍微看重一些。”
+
+　　这时，主桌上坐在首位的老太君叹息了一声。
+
+　　叶谭明急忙说道：“奶奶，今天是您的大寿，为何还要叹气啊。”
+
+　　“今天本来是个高兴的日子，但是有一件事却是我的心病，跟建达集团的合作一直没有谈妥，我心里放心不下。”
+
+　　 建达集团，是滨海数一数二的大型私有集团，旗下公司数十家，年盈利达到十几亿，是真正的大财团。
+
+　　“如果能跟建达成为合作伙伴，那么叶家今后十几年当无忧矣。”
+
+　　“我一副老骨头又有几年活头，倘若能跟建达的关系更进一步，那么我叶家便榜上了一棵大树，我走也走的安心了。”
+
+　　 众人听到这话，都神色一窒。
+
+　　“老太君，今天是您的大寿，您一定会长命百岁的。”
+
+　　老太君摆摆手，“马屁话就不要说了，今天是我大寿，我便讨个彩头，谁能把这份合作谈下来，我老太太便满足他一个愿望！叶家之人，有一个算一个，我说话算数。”
+
+　　此话一处，在坐的亲戚们都是一愣，老太太在叶家那是一言九鼎，她能满足的愿望，即便是要叶家家主之位，恐怕都不会拒绝吧。
+
+　　叶谭明眼神火热，当即就要站起来，但是一想到是建达集团，硬是没动地方。
+
+　　他曾经去拜访过建达集团的老总，结果也是碰了一鼻子灰。
+
+　　 这个彩头，可不是那么好讨的。
+
+　　 叶谭明的父亲叶如海说道：“妈，那等大财团不是轻易能谈得下来的，你放心吧，我们会努力的。”
+
+　　“哼，你们努力有个屁用，还不是吃了闭门羹，难道说，建达嫌我叶家体量太小，不屑跟我们合作吗。”
+
+　　众人一片静默。
+
+　　“今日就无人敢应下我老太婆的军令状？”老太君露出了不满的神色来。
+
+　　她也不是非要他们谈成这次合作，要的便是他们的一个态度，可让她失望的是，竟然没有一个人敢应下来。
+
+　　叶云舒也知道这家集团，在滨海赫赫有名，不过她倒是第一次听说叶家要跟建达合作，也对，这种事怎么可能会有人跟她说呢。
+
+　　见叶云舒感兴趣，萧阳碰了碰她，“应下来吧。”
+
+　　叶云舒明显的一愣，“你......你说什么？“
+
+　　“应下来，你去跟建达谈合作，这样一来，你就能获得老太君的认可了，不是吗？”
+
+　　叶云舒心中一动，是了，跟建达集团合作，是老太君的一块心病，谁要是能解决这件事，那么在老太君眼里，就是有用之才。
+
+　　她脑袋一热，便站了起来，“奶奶，我去！”
+
+　　主桌上的众多亲戚都扭头看了过来，如果不是叶云舒突然说了这么一句话，大家都已经忘记了还有叶云舒这么一号人物。
+
+　　“你去？你凭什么去，就凭你一个普通小职员的身份吗？”叶谭明鄙视的一笑道。
+
+　　“云舒，这件事可不是儿戏啊，你代表的可是叶家，如果你到时候上不得台面，得罪了建达集团，那我们叶家以后可就不好过了。”
+
+　　“可不是我们看不起你，你父亲能力一般，你又能强到哪里去，老太君，我看这件事交给她可不行。”
+
+　　众多亲戚见站起来的是叶云舒，不禁都是摇了摇头。
+
+　　其实叶云舒刚站起来就后悔了，她也是想证明自己，再加上萧阳的一席话，可现在反悔，必定会成为大家眼中的笑话。
+
+　　老太君双目一眯，不禁有些失望了起来，她没想到叶云舒会站起来，一介女流，也来掺和这种大事。
+
+　　但既然她已经放下了话，自然不能不作数的。
+
+　　“云舒，那这件事就暂时交给你吧，记住，不管怎么样，不要得罪了建达。”
+
+　　“遵命，奶奶。”叶云舒硬着头皮答应道。
+
+　　“叶云舒，既然你答应了，那要是做不到怎么办？”叶谭明讥讽的说道。
+
+　　叶云舒拧着秀眉说道：“那你想怎么样？”
+
+　　“你要是办到了，就让你父亲在公司里谋个差事，若是办不到，从此以后，你们这一脉，就滚出叶家，怎么样？”
+
+　　叶云舒犹豫了，可赌注似乎有点大。
+
+　　可就在这时，萧阳冲着她点了点头，叶云舒一愣，他怎么这么自信，难道萧阳跟建达集团的人认识吗。
+
+　　于是咬了咬牙，说道：“好，我答应你！”
+
+　　说罢，叶云舒就离开了，萧阳双手插兜，若无其事的跟在老婆身后。
+
+　　“切，一个衰女，一个废物，真是天作之合。”
+
+　　......
+
+　　寿宴完毕后，老太君亲自盯着下人将一件件礼品打包，运往叶家大宅。
+
+　　“老太君，这件铜壶怎么处理？”一个下人走过来问道。
+
+　　“这还用问，当然是扔了，这种垃圾东西摆在家里也不嫌丢人。”叶谭明抢过话头说道。
+
+　　老太君神色淡淡的扫了他一眼，叶谭明自觉多嘴，缩在了老太君的身后。
+
+　　“算了，扔了吧。”老太君随意说了一句。
+
+　　但就在这时，一个老者走了过来，急忙说道：“等一下！”
+
+　　老太君笑了笑，“是魏老啊，您还没走呢。”
+
+　　魏老是滨海赫赫有名的鉴赏家，一双锐眼过宝无数，从未走眼。
+
+　　老太君平日里喜欢收藏，可眼力却不怎么样，所以魏老也偶然过来长眼。
+
+　　今天魏老亲自前来，也让她觉得颜面有光。
+
+　　但此时魏老却并没有理会老太君，一脸激动的来到铜壶跟前，双手颤抖的抚摸着一条条纹路，激动的说不出话来。
+
+　　“魏老，你不必动怒，这件东西是一个废物送来的，摆在这里确实碍眼，我马上就让人扔出去。”
+
+　　“你给我住口！”魏老猛地大喝一声。
+
+　　“你懂什么，这件铜壶可是价值连城的宝贝，上一次在苏富比拍卖会上，跟这只相仿的铜壶，品相远没有这个好，却拍出了五千万的天价！”
+
+　　老太君和叶谭明都是一呆，这只铜壶......竟然这么贵？
+
+　　“宝贝，宝贝啊，老太君，您收藏无数，可全部加起来，恐怕都不及这件宝贝的一个零头。”
+
+　　“老太君，这件礼品是谁送来的，快，带我去见见他，能送如此贵重的礼物，恐怕跟叶家关系匪浅吧。”
+
+　　老太君老脸一颤，震惊的已经说不出话来了。
+</div>
+</div>
+    <button class="download_button" onclick="download()">
+        下载免费小说，全文免费观看
+    </button>
+    <div class="copyright">
+      <p>长沙迈路信息技术有限公司</p>
+    </div>
+  </div>
+</body>
+
+<script>
+var appInfo = {
+  androidSize: "10.5M",
+  iosSize: "66M",
+  "mfxs.mailuxinxi9.cn": {
+    download: "https://at.umtrack.com/onelink/n0XXfm",
+  },
+  default: {
+    download: "https://at.umtrack.com/onelink/jG9jmC",
+  }
+}
+
+if (/(iPhone|iPad|iPod|iOS)/i.test(navigator.userAgent)) {
+  document.querySelector(".size").innerText = appInfo.iosSize
+} else {
+  document.querySelector(".size").innerText = appInfo.androidSize
+}
+
+var appName = document.querySelector('.appName').innerText;
+window.download = function() {
+  if(/(iPhone|iPad|iPod|iOS)/i.test(navigator.userAgent)){
+    window.location.href = appInfo[window.location.hostname] && appInfo[window.location.hostname].download || appInfo.default.download;
+  }else{
+      var urls = appInfo[window.location.hostname] && appInfo[window.location.hostname].download || appInfo.default.download;
+      window.location.href = './down.html?app='+appName+'&link=' + urls;
+  }
+  
+}
+</script>
+
+</html>

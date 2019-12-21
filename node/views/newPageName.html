@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    html,
+    body {
+        width: 100%;
+        height: 100%;
+        background-color: #aaa;
+        position: relative;
+    }
+
+    form {
+        width: 300px;
+        height: 169px;
+        background-color: #aaa;
+        /* 以下是垂直水平居中关键代码 */
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    form p {
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    form .tips {
+        color: #aaa;
+        -webkit-user-select: none;
+    }
+
+    form input[type="text"] {
+        width: 300px;
+        height: 45px;
+        margin-bottom: 15px;
+        padding-left: 15px;
+        box-sizing: border-box;
+        border: 1px solid #000000;
+    }
+
+    form input[type="button"],
+    form input[type="reset"] {
+        width: 145px;
+        height: 30px;
+        vertical-align: middle;
+        font-size: 14px;
+    }
+
+    form input[type="reset"] {
+        margin-left: 5px;
+    }
+
+    form #goBack {
+        width: 300px;
+        height: 30px;
+        margin-top: 15px;
+    }
+
+    form .channel_name {
+        width: 120px;
+        height: 30px;
+        padding-left: 5px;
+        box-sizing: border-box;
+
+    }
+
+    form span {
+        font-size: 15px;
+        color: bisque
+    }
+
+    form span>a {
+        color: red;
+    }
+</style>
+
+<body>
+    <form>
+        <select class="channel_name"></select>
+        <span>没有我要的,前往<a href="/newChannel/newChannel">新建渠道</a></span>
+        <p>请输入新建包名</p>
+        <input type="text" class="pageName">
+        <p class="tips">我是提示喔是</p>
+        <input type="button" value="新建" class="newBtn">
+        <input type="reset">
+        <input type="button" value="返回首页" id="goBack">
+    </form>
+    
+</body>
+<script src="../pub/javascripts/jquery.min.js"></script>
+<script>
+    window.onload = function () {
+        //获取渠道
+        let dataHtml = '<option selected>--请选择渠道--</option>';
+        $.ajax({
+            type: 'get',
+            url: '/newPageName/getChannel',
+            success: data => {
+                let dataArr = data;
+                dataArr.map((item, index) => {
+                    dataHtml += `
+                    <option value="${index}">${item}</option>
+                    `
+                });
+                $('.channel_name').html(dataHtml);
+            }
+
+        })
+
+
+
+
+        //点击新建
+        $('.newBtn').click(() => {
+            let pageName_val = $('.pageName').val();
+            let select_text = $('.channel_name').find('option:selected').text();
+            // console.log(pageName_val);
+            if (select_text == '--请选择渠道--') {
+                $('.tips').text('渠道不能为空喔！！！');
+                $('.tips').css('color', 'red');
+            } else {
+                if (pageName_val == '') {
+                    $('.tips').text('包名不能为空喔！！！');
+                    $('.tips').css('color', 'red');
+                } else {
+                    $.ajax({
+                        type: 'get',
+                        url: '/newPageName/ceatePageName',
+                        data: {
+                            'pageName_val': pageName_val,
+                            'select_text': select_text
+                        },
+                        success: data => {
+                            console.log(data);
+                            if (data == 'yes') {
+                                $('.tips').text('该包名已经存在了');
+                                $('.tips').css('color', 'pink');
+                            } else if (data == 'ok') {
+                                $('.tips').text('该包名已新建成功');
+                                $('.tips').css('color', 'green');
+                            }
+                        }
+                    });
+                }
+            }
+        })
+        //点击返回首页
+        $('#goBack').click(() => {
+            window.location.href = '/'
+        })
+    }
+</script>
+
+</html>

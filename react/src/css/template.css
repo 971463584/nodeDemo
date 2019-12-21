@@ -1,0 +1,255 @@
+.template1From {
+    width: 560px;
+    height: auto;
+    top: 15px;
+    transform: translate(-50%, 0%);
+}
+
+.template1From #config_box,
+.template1From .chapter_box,
+.template1From>div {
+    width: 560px;
+}
+
+#Unified_logo > div > p,
+#Distinguish_logo > div.android_logo > p,
+#Distinguish_logo > div.ios_logo > p,
+.template1From .Distinguish_logo >div >p,
+.template1From .Unified_appName>p,
+.template1From .Distinguish_appName>div p,
+.template1From #config_box>div>p,
+.template1From .chapter_box>div>p,
+.template1From>div>p {
+    width: 130px;
+    display: inline-block;
+    font-size: 14px;
+    color: #48576a;
+}
+
+#Unified_logo > div > p,
+#Distinguish_logo > div.android_logo > p,
+#Distinguish_logo > div.ios_logo > p,
+.template1From .Distinguish_logo >div >p,
+.template1From .Unified_appName>p,
+.template1From .Distinguish_appName>div p{
+    font-weight: 700;
+}
+
+.template1From>div>div,
+.template1From #config_box>div>div,
+.template1From .chapter_box>div>div,
+.template1From .Unified_appName>div,
+.template1From .Distinguish_appName>div>div,
+.template1From .Unified_logo .app_logo > div,
+#Unified_logo > div > div,
+#Distinguish_logo > div.android_logo > div,
+#Distinguish_logo > div.ios_logo > div{
+    display: inline-block;
+}
+
+.template1From div input[type='radio'],
+.template1From div input[type='text'],
+.template1From div input[type='number'] {
+    width: 300px;
+    height: 45px;
+    margin-bottom: 15px;
+    padding-left: 15px;
+    box-sizing: border-box;
+    border: 1px solid #000000;
+    background-color: #fff;
+    background-image: none;
+    border-radius: 4px;
+    border: 1px solid #bfcbd9;
+    color: #1f2d3d;
+    font-size: inherit;
+    line-height: 1;
+    outline: 0;
+    padding: 3px 10px;
+    transition: border-color .2s
+}
+
+.template1From div>div>textarea {
+    display: block;
+    resize: vertical;
+    padding: 5px 7px;
+    line-height: 1.5;
+    width: 300px;
+    color: #1f2d3d;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #bfcbd9;
+    border-radius: 4px;
+    transition: border-color .2s;
+    margin-bottom: 10px;
+}
+
+.template1From div>div>textarea:hover {
+    border-color: #8391a5;
+}
+
+.template1From div input:hover {
+    border-color: #8391a5;
+}
+
+.template1From div input:focus {
+    outline: 0;
+    border-color: #20a0ff;
+}
+
+.template1From div>div>textarea:focus {
+    outline: 0;
+    border-color: #20a0ff;
+}
+.dis_input,
+.template1From .modle_num>div>input {
+    background-color: #eef1f6;
+    border-color: #d1dbe5;
+    color: #bbb;
+    cursor: not-allowed;
+}
+
+.chapter_content>p,
+.chapter_content>div,
+.book_introduce>p,
+.book_introduce>div,
+.bookIntroduce>p,
+.bookIntroduce>div {
+    vertical-align: middle;
+}
+
+.bookDown {
+    margin-top: 10px;
+}
+
+.template1From #reset_btn,
+.template1From #submit_Btn,
+.template1From .add_btn,
+.template1From .add_config,
+.template1From .add_chapter {
+    width: 200px;
+    height: 35px;
+    line-height: 35px;
+    vertical-align: middle;
+    font-size: 14px;
+    color: #fff;
+    background-color: #1890ff;
+    border-color: #1890ff;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.12);
+    -webkit-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.045);
+    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.045);
+    border-radius: 4px;
+    font-weight: 400;
+    white-space: nowrap;
+    text-align: center;
+    background-image: none;
+    cursor: pointer;
+    margin-bottom: 15px;
+    margin-top: 10px;
+}
+
+#reset_btn,
+#submit_Btn {
+    line-height: normal;
+}
+.template1From .add_config,
+.template1From .add_chapter{
+    margin: 0 auto;
+    margin-top: 10px;
+}
+#submit_Btn {
+    margin-right: 30px;
+}
+
+.template1From .add_btn {
+    width: 430px;
+    height: 40px;
+    line-height: 40px;
+    margin-bottom: 15px;
+}
+
+#submit_Btn:hover {
+    color: #fff;
+    background-color: #40a9ff;
+    border-color: #40a9ff;
+}
+
+.add_btn:hover {
+    color: #fff;
+    background-color: #40a9ff;
+    border-color: #40a9ff;
+}
+
+#reset_btn:hover {
+    color: #fff;
+    background-color: #40a9ff;
+    border-color: #40a9ff;
+}
+
+.template1From .select_logo input[name='logos'],
+.template1From .select_appName input[name='names'],
+.template1From .bookState input[name='bookState'] {
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+}
+
+.template1From .select_logo>p,
+.template1From .select_appName>p,
+.template1From .bookState>p {
+    vertical-align: middle;
+}
+
+.template1From .select_logo span,
+.template1From .select_appName span,
+.template1From .bookState span {
+    vertical-align: super;
+    margin-right: 15px;
+}
+
+.template1From .bookFace>div>input {
+    width: 200px;
+}
+
+.goBack {
+    font-style: normal;
+    display: block;
+    width: 55px;
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+    font-size: 14px;
+    color: #fff;
+    background-color: #1890ff;
+    border-color: #1890ff;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.del_chapter_box,
+.del_config_box {
+    display: block;
+    width: 100px;
+    height: 25px;
+    text-align: center;
+    border: 1px solid;
+    line-height: 25px;
+    border-radius: 5px;
+    background-color: red;
+    color: #fff;
+    font-style: normal;
+    cursor: pointer;
+    margin: 10px auto;
+}
+#Unified_logo > div > div > i,
+#Distinguish_logo > div.ios_logo > div > i,
+#Distinguish_logo > div.android_logo > div > i{
+    display: inline-block;
+    background-size: 100%;
+}
+#newCeatePage > div.book_imgs > div > img{
+    display: inline-block;
+    width: 105px;
+}
+#newCeatePage > div.bookFace > div > img{
+    width: 100px;
+}

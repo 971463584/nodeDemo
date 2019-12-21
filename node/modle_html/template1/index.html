@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=375,initial-scale=1,maximum-scale=1,minimum-scale=1 user-scalable=no">
+    <meta name="x5-fullscreen" content="true">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>模板1</title>
+    <script>
+        function audoWidth() {
+            var e = 375;
+            if (screen.width !== e) {
+                var i = document.querySelector("meta[name='viewport']"),
+                    t = screen.width,
+                    n = 1;
+                if (screen.width === 1080) {
+                    t = 360
+                }
+                if (/Android\s4\.3.*UCBrowser\/11\.1\.0\.870.*/.test(window.navigator.userAgent)) {
+                    t = 360
+                }
+                n = t / e;
+                i.content = "width=" + e + ",initial-scale=" + n + ",maximum-scale=" + n + ",minimum-scale=" + n
+            }
+        }
+        audoWidth();
+        window.addEventListener('resize', () => audoWidth())
+    </script>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    html,
+    body,
+    content {
+        width: 100%;
+        height: 100%;
+        color: #333;
+        font-size: 16px;
+        font-family: "Helvetica Neue", Helvetica, Arial, "PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+    }
+
+    ul,
+    ol,
+    li {
+        list-style: none;
+    }
+
+    header {
+        padding: 10px 22px;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background: #fff;
+        z-index: 100;
+        box-shadow: 0 2px 16px 0 rgba(0, 0, 0, .1);
+        display: flex;
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+        -ms-flex-align: center;
+        align-items: center;
+    }
+
+    header div {
+        width: 50px;
+        height: 50px;
+        margin-right: 13px;
+        background-image: url("./imgs/2019-06-13 15.02.11.jpg");
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: contain;
+    }
+
+    header p {
+        font-size: 16px;
+        color: #333;
+    }
+
+    .content {
+        position: relative;
+        padding-top: 5px;
+        bottom: 0;
+        top: 70px;
+        overflow-y: auto;
+    }
+
+    main {
+        width: 100%;
+
+    }
+
+    main div.xq {
+        height: 144px;
+        padding: 24px 15px;
+        display: flex;
+    }
+
+    div.xq>div:nth-child(1) {
+        width: 125px;
+        height: 144px;
+    }
+
+    div.xq>div:nth-child(1) img {
+        width: 105px;
+        height: 140px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, .5);
+        margin-right: 20px;
+    }
+
+    div.xq>div:nth-child(2) {
+        -webkit-box-flex: 1;
+        -webkit-flex: 1;
+        -ms-flex: 1;
+        flex: 1;
+    }
+
+    .book_info li:nth-child(1) {
+        height: 32px;
+    }
+
+    .book_info li:nth-child(2),
+    .book_info li:nth-child(3),
+    .book_info li:nth-child(4) {
+        margin-top: 5px;
+        height: 20px;
+    }
+
+    .book_info li:nth-child(5) {
+        margin-top: 15px;
+        height: 18px;
+    }
+
+    .book_info .book_tags span {
+        color: #8a8a8f;
+        font-size: 12px;
+        line-height: 16px;
+        padding: 2px 8px;
+        border-radius: 100px;
+        background-color: #efeff4;
+    }
+
+
+    .book_num p {
+        float: right;
+        line-height: 32px;
+
+    }
+
+    .book_num p span:nth-child(1) {
+        color: #e63051;
+        font-size: 28px;
+    }
+
+    .book_num p span:nth-child(2) {
+        color: #e63051;
+        font-size: 21px;
+    }
+
+    .book_performer {
+        color: #e63051;
+        font-size: 14px;
+    }
+
+    .book_performer span:nth-child(2) {
+        font-weight: 700;
+    }
+
+    .book_state {
+        color: #999999;
+        font-size: 14px;
+    }
+
+    .book_fans {
+        color: #999999;
+        font-size: 14px;
+    }
+
+    .book_fans span:nth-child(1) {
+        color: #333;
+    }
+
+    .jj {
+        font-size: 14px;
+        line-height: 20px;
+        padding: 8px 15px 25px;
+        color: #999;
+        border-bottom: 1px solid #d8d8d8;
+    }
+
+    .pl {
+        padding-bottom: 85px;
+    }
+
+    .pl ul li {
+        padding: 15px;
+    }
+
+
+    .comment_1 i {
+        background-image: url('./imgs/p1.png')
+    }
+
+    .comment_2 i {
+        background-image: url('./imgs/p2.png')
+    }
+
+    .comment_3 i {
+        background-image: url('./imgs/p3.jpg')
+    }
+
+    .comment_1 i,
+    .comment_2 i,
+    .comment_3 i {
+        display: inline-block;
+        width: 50px;
+        height: 50px;
+        margin-right: 10px;
+        border-radius: 50%;
+        background-position: center center;
+        background-size: 100% 100%;
+        vertical-align: top;
+    }
+
+
+
+    .comment_1 div,
+    .comment_2 div,
+    .comment_3 div {
+        display: inline-block;
+        width: 280px;
+    }
+
+    .comment_1 div p:nth-child(1),
+    .comment_2 div p:nth-child(1),
+    .comment_3 div p:nth-child(1) {
+        font-size: 12px;
+        color: #999;
+        line-height: 16.5px;
+    }
+
+    .comment_1 div p:nth-child(2),
+    .comment_2 div p:nth-child(2),
+    .comment_3 div p:nth-child(2) {
+        font-size: 14px;
+        line-height: 20px;
+        margin-top: 5px;
+    }
+
+    footer {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        padding: 2.6666% 14%;
+        text-align: center;
+        box-sizing: border-box;
+        border-top: 1px solid #d8d8d8;
+        background: rgba(255, 255, 255, .8);
+    }
+
+    footer button {
+        border: 0;
+        outline: 0;
+        color: #fff;
+        font-size: 18px;
+        line-height: 25px;
+        width: 100%;
+        padding: 10px;
+        border-radius: 7.5px;
+        background-color: #e63051;
+    }
+
+    footer p {
+        text-align: center;
+        padding-top: 10px;
+        width: 100%;
+        opacity: .35;
+        font-size: 10px;
+        color: #e63051;
+    }
+</style>
+
+<body>
+    <!-- top -->
+    <header>
+        <div></div>
+        <p><strong>全民免费小说</strong> - 百万小说,免费不花钱</p>
+    </header>
+    <div class="content">
+        <!-- main -->
+        <main>
+            <img src="./imgs/logo.png" alt="" style="position: absolute;top: 5px;left: 18px;width: 55px;">
+            <div class="xq">
+                <div>
+                    <img src="./imgs/avatar.jpg" alt="">
+                </div>
+                <div>
+                    <ul class="book_info">
+                        <li class="book_num" data-info="9.6">
+                            <strong>赘婿当道</strong>
+                            <p>
+                                <span></span>
+                                <span></span>
+                                分
+                            </p>
+                        </li>
+                        <li class="book_performer" data-info="岳风,柳萱">
+                            <span>主角:</span>
+                            <span></span>
+                        </li>
+                        <li class="book_state">
+                            <span>状态:</span>
+                            <span>我是状态</span>
+                        </li>
+                        <li class="book_fans">
+                            <span>123465</span>
+                            <span>名书友正在看</span>
+                        </li>
+                        <li class="book_tags" data-info="现代言情，青春">
+                            <!-- <span></span> -->
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="jj">
+                <p>
+                    <span>简介：</span>
+                    <span>岳母：你赶紧离开我女儿，你个废物东西，配不上她。三日后。岳母：我求求你别离开我们家，行吗..</span>
+                </p>
+            </div>
+            <div class="pl">
+                <ul>
+                    <li class="comment_1">
+                        <i></i>
+                        <div>
+                            <p>当爱已成往事</p>
+                            <p>这本书非常好看，值得收藏阅读。特别是在全民免费小说APP上看书特别舒服，所有章节免费无广告。不像其他小说网和阅读器，基本都是看几章就开始收费，要么就是内容里面一堆的广告。</p>
+                        </div>
+                    </li>
+                    <li class="comment_2">
+                        <i></i>
+                        <div>
+                            <p>飘逸</p>
+                            <p>在这儿看书干净舒服，没有乱七八糟的弹窗和小广告，眼睛不会看着难受。</p>
+                        </div>
+                    </li>
+                    <li class="comment_3">
+                        <i></i>
+                        <div>
+                            <p>醉卧松岗</p>
+                            <p>这本书更新得挺快的嘛，几天不看都更了那么多。</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </main>
+    </div>
+    <!-- bottom -->
+    <footer>
+        <button>点击下载免费阅读</button>
+        <p>长沙迈路信息技术有限公司</p>
+    </footer>
+</body>
+<script>
+    (() => {
+        //主角
+        var book_performer = document.querySelector('.book_performer');
+        var book_performer_val = book_performer.getAttribute('data-info');
+        var performer_span = document.querySelector('.book_performer span:nth-child(2)');
+        performer_span.innerHTML = book_performer_val;
+
+        //分数
+        var book_num = document.querySelector('.book_num');
+        var book_num_val = book_num.getAttribute('data-info')
+        var numArr = book_num_val.split('.');
+        var book_num_span1 = document.querySelector('.book_num>p span:nth-child(1)');
+        var book_num_span2 = document.querySelector('.book_num>p span:nth-child(2)');
+        book_num_span1.innerHTML = numArr[0] + '.';
+        book_num_span2.innerHTML = numArr[1];
+
+        //标签
+        var book_tags = document.querySelector('.book_tags');
+        var book_tags_val = book_tags.getAttribute('data-info')
+        var tagsHtml = '';
+        var tagsArr;
+        if (book_tags_val.indexOf(',') > 0) {
+            tagsArr = book_tags_val.split(',');
+        } else if (book_tags_val.indexOf('，') > 0) {
+            tagsArr = book_tags_val.split('，');
+        } else {
+            console.log('nothing');
+        }
+
+        tagsArr.map((item, index) => {
+            return tagsHtml += `
+                <span title='${item}'>${item}</span>
+            `
+        });
+
+        book_tags.innerHTML = tagsHtml;
+    })();
+</script>
+
+</html>

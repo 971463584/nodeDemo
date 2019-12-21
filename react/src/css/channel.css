@@ -1,0 +1,70 @@
+form {
+    width: 300px;
+    height: 169px;
+    /* background-color: #aaa; */
+    /* 以下是垂直水平居中关键代码 */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+form p {
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+form .tips {
+    color: #fff;
+    -webkit-user-select: none;
+}
+
+form input[type="text"] {
+    width: 300px;
+    height: 45px;
+    margin-bottom: 15px;
+    padding-left: 15px;
+    box-sizing: border-box;
+    border: 1px solid #000000;
+}
+
+#root > section > section > main > div > form > button.ant-btn.newBtn,
+#root > section > section > main > div > form > button.ant-btn.resetBtn{
+    width: 145px;
+    height: 30px;
+    vertical-align: middle;
+    font-size: 14px;
+}
+
+#root > section > section > main > div > form > button.ant-btn.resetBtn {
+    margin-left: 10px;
+}
+
+form #goBack {
+    width: 300px;
+    height: 30px;
+    margin-top: 15px;
+}
+.tips{
+    font-size: 16px;
+    color: #fff;
+}
+
+.tips_wrong{
+    font-size: 16px;
+    color: red;
+}
+
+.tips_right{
+    font-size: 16px;
+    color: green;
+}
+
+.deitHost{
+    width: 425px;
+    height: 595px;
+}
+#root > section > section > main > div > form.deitHost > button.ant-btn.resetBtn {
+    margin-left: 135px;
+}
